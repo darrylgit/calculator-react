@@ -12,4 +12,5 @@ export const CalculatorContainer = styled.div`
   background-image: url(../css/background.jpg);
   @include background-size(cover);
   background-repeat: no-repeat;
+  padding-bottom: 0.5rem;
 `;
