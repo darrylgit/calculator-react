@@ -1,0 +1,288 @@
+/*
+===================================
+BODY STYLES
+===================================
+*/
+html, body {
+  min-height: 100%;
+  margin: 0;
+  background: -webkit-linear-gradient(#ffe2d2, #ffbc97) fixed;
+  background: -moz-linear-gradient(#ffe2d2, #ffbc97) fixed;
+  background: -o-linear-gradient(#ffe2d2, #ffbc97) fixed;
+  background: linear-gradient(#ffe2d2, #ffbc97) fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300; }
+
+/*
+===================================
+CALCULATOR
+===================================
+*/
+.container {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  margin-top: 5rem;
+  border: 3px solid #6FA7C6;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0;
+  -webkit-transform: scale(1);
+  overflow: hidden;
+  background-image: url(../css/background.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+/*
+===================================
+DISPLAY
+===================================
+*/
+.output-outer {
+  background-color: transparent;
+  margin-top: 28%;
+  padding-right: 1.5rem;
+  font-size: 3em;
+  font-weight: 500;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-rendering: geometricPrecision;
+  -webkit-transform: scale(1); }
+  .output-outer br {
+    display: block; }
+
+#inputDisplay,
+#preview {
+  float: right; }
+
+#inputDisplay {
+  color: rgba(255, 255, 255, 0);
+  font-size: .6em; }
+
+#preview {
+  margin-top: -35px; }
+
+/*
+===================================
+KEYPAD
+===================================
+*/
+table {
+  position: absolute;
+  bottom: 0.5rem;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center; }
+
+td {
+  width: 20%;
+  max-width: 100px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-size: 2.4rem;
+  padding: 0;
+  position: relative;
+  /*border: 1px solid green;*/ }
+
+.gutter {
+  width: calc((100% - (4 * 20%)) / 3); }
+
+a {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+a:hover {
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+.circle-outer {
+  width: 100%;
+  padding-top: 100%;
+  position: relative; }
+
+.circle-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+  display: flex;
+  justify-content: center;
+  align-self: center; }
+
+/*
+===================================
+CLEAR BUTTON
+===================================
+*/
+#clear-styles {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  -webkit-transform: scale(1.2); }
+
+.clear-button {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #ff3545; }
+
+.clear-button:hover {
+  background-color: #ff3545;
+  color: white; }
+
+/*
+===================================
+AUX BUTTONS
+===================================
+*/
+#backspace {
+  font-size: 1.9rem; }
+
+#negative {
+  font-size: 1.7rem; }
+
+#decimal {
+  font-weight: 500; }
+
+.aux {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  -webkit-transform: scale(1); }
+
+.aux-button {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #727272; }
+
+.aux-button:hover {
+  background-color: #727272;
+  color: white; }
+
+/*
+===================================
+INTEGER BUTTONS
+===================================
+*/
+.integer {
+  font-size: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-self: center; }
+
+.integer-button {
+  color: #6FA7C6;
+  background: rgba(255, 255, 255, 0.75); }
+
+.integer-button:hover {
+  color: white;
+  background: #6FA7C6; }
+
+/*
+===================================
+OPERATOR and EQUALS BUTTONS
+===================================
+*/
+.operator {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  line-height: 100%;
+  -webkit-transform: scale(1.2); }
+
+.equals {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  line-height: 100%;
+  -webkit-transform: scale(1.4); }
+
+.operator-button {
+  color: #ff8a35;
+  background-color: rgba(255, 255, 255, 0.75); }
+
+.operator-button:hover {
+  color: white;
+  background-color: #ff8a35; }
+
+.equals-button {
+  color: white;
+  /*background-color: #35B6FF;*/
+  background-color: #35AAFF; }
+
+.equals-button:hover {
+  color: white;
+  background-color: #006097; }
+
+/*
+===================================
+UNCLOSED PARENTHESES WARNING
+===================================
+*/
+.unclosed-par {
+  display: inline-block;
+  margin-right: 0.25px;
+  animation-duration: 0.25s;
+  animation-name: flash;
+  animation-timing-function: ease-in; }
+
+@keyframes flash {
+  from {
+    -webkit-transform: scale(1.5);
+    color: #ff3551; }
+  to {
+    -webkit-transform: scale(1);
+    color: white; } }
+/*
+===================================
+MEDIA QUERIES
+===================================
+*/
+@media (max-width: 576px) {
+  html {
+    height: 100%; }
+
+  .container {
+    height: 100%;
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0; }
+
+  table {
+    height: 50%; }
+
+  #output-outer {
+    margin-top: 12vh; }
+
+  .container {
+    -webkit-background-size: 100% 80%;
+    -moz-background-size: 100% 80%;
+    -o-background-size: 100% 80%;
+    background-size: 100% 80%; } }
+@media (max-width: 440px) {
+  #output-outer {
+    margin-top: 12vh; } }
