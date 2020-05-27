@@ -1,3 +1,5 @@
+This is the old README for the original jQuery calculator. To see the original repo, visit: https://github.com/DanielJWagener/calculator
+
 # Calculator
 
 I created this calculator for freeCodeCamp using jQuery, going above and beyond the curriculum by implementing a recursive solution for parentheses.
