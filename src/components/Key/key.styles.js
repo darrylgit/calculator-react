@@ -1,4 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
+
+// All this work to get some circles:
 
 export const KeyOuter = styled.div`
   width: 100%;
@@ -19,8 +22,19 @@ export const KeyInner = styled.div`
   justify-content: center;
   align-items: center;
   align-self: center;
+  cursor pointer;
 `;
 
 export const KeySuper = styled.div`
   min-width: 21%;
 `;
+
+export default ({ children }) => {
+  return (
+    <KeySuper>
+      <KeyOuter>
+        <KeyInner>{children}</KeyInner>
+      </KeyOuter>
+    </KeySuper>
+  );
+};
