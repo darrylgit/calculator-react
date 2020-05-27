@@ -1,0 +1,41 @@
+/*
+===================================
+BODY STYLES
+===================================
+*/
+
+$bg-val1: #ffe2d2;
+$bg-val2: #ffbc97;
+
+@mixin background-gradient($val1, $val2) {
+  background: -webkit-linear-gradient($val1, $val2) fixed;
+  background: -moz-linear-gradient($val1, $val2) fixed;
+  background: -o-linear-gradient($val1, $val2) fixed;
+  background: linear-gradient($val1, $val2) fixed;
+}
+
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+  -moz-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  @include background-gradient($bg-val1, $bg-val2);
+  @include background-size(cover);
+  background-repeat: no-repeat;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

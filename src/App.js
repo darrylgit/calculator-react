@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Calculator from './components/Calculator/calculator.component';
+
+import './App.scss';
+
 const App = () => {
-  return <div>Hello, world!</div>;
+  return <Calculator />;
 };
 
 export default App;

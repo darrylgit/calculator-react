@@ -1,4 +1,3 @@
-
 /*
 ===================================
 BODY STYLES
@@ -8,36 +7,35 @@ BODY STYLES
 $bg-val1: #ffe2d2;
 $bg-val2: #ffbc97;
 
-@mixin background-gradient ($val1, $val2) {
+@mixin background-gradient($val1, $val2) {
   background: -webkit-linear-gradient($val1, $val2) fixed;
-  background:    -moz-linear-gradient($val1, $val2) fixed;
-  background:      -o-linear-gradient($val1, $val2) fixed;
-  background:         linear-gradient($val1, $val2) fixed;
+  background: -moz-linear-gradient($val1, $val2) fixed;
+  background: -o-linear-gradient($val1, $val2) fixed;
+  background: linear-gradient($val1, $val2) fixed;
 }
 
-@mixin background-size ($size) {
+@mixin background-size($size) {
   -webkit-background-size: $size;
-     -moz-background-size: $size;
-       -o-background-size: $size;
-          background-size: $size;
+  -moz-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   margin: 0;
   @include background-gradient($bg-val1, $bg-val2);
   @include background-size(cover);
   background-repeat: no-repeat;
-
 }
 
 body {
   height: 100%;
   width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
-
 
 /*
 ===================================
@@ -50,17 +48,16 @@ CALCULATOR
   width: 360px;
   height: 640px;
   margin-top: 5rem;
-  border: 3px solid #6FA7C6;
+  border: 3px solid #6fa7c6;
   background-color: white;
   border-radius: 20px;
   padding: 0;
-  -webkit-transform: scale(1.0);
+  -webkit-transform: scale(1);
   overflow: hidden;
   background-image: url(../css/background.jpg);
   @include background-size(cover);
   background-repeat: no-repeat;
 }
-
 
 /*
 ===================================
@@ -78,11 +75,10 @@ DISPLAY
   overflow: hidden;
   white-space: nowrap;
   text-rendering: geometricPrecision;
-  -webkit-transform: scale(1.0);
+  -webkit-transform: scale(1);
 
   br {
     display: block;
-
   }
 }
 
@@ -92,15 +88,13 @@ DISPLAY
 }
 
 #inputDisplay {
-  color: rgba(255, 255, 255, 0.0);
-  font-size: .6em;
+  color: rgba(255, 255, 255, 0);
+  font-size: 0.6em;
 }
 
 #preview {
   margin-top: -35px;
 }
-
-
 
 /*
 ===================================
@@ -137,25 +131,25 @@ td {
 
 a {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-       -o-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 a:hover {
   text-decoration: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-       -o-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .circle-outer {
   width: 100%;
   padding-top: 100%;
-  position: relative
+  position: relative;
 }
 
 .circle-inner {
@@ -171,7 +165,6 @@ a:hover {
   justify-content: center;
   align-self: center;
 }
-
 
 /*
 ===================================
@@ -198,7 +191,6 @@ $opacity-white: rgba(255, 255, 255, 0.75);
   background-color: $clear-color;
   color: white;
 }
-
 
 /*
 ===================================
@@ -237,14 +229,13 @@ $aux-color: #727272;
   color: white;
 }
 
-
 /*
 ===================================
 INTEGER BUTTONS
 ===================================
 */
 
-$integer-color: #6FA7C6;
+$integer-color: #6fa7c6;
 
 .integer {
   font-size: 2.7rem;
@@ -262,7 +253,6 @@ $integer-color: #6FA7C6;
   color: white;
   background: $integer-color;
 }
-
 
 /*
 ===================================
@@ -303,14 +293,13 @@ $operator-color: #ff8a35;
 .equals-button {
   color: white;
   /*background-color: #35B6FF;*/
-  background-color: #35AAFF;
+  background-color: #35aaff;
 }
 
 .equals-button:hover {
   color: white;
   background-color: #006097;
 }
-
 
 /*
 ===================================
@@ -333,7 +322,7 @@ UNCLOSED PARENTHESES WARNING
   }
 
   to {
-    -webkit-transform: scale(1.0);
+    -webkit-transform: scale(1);
     color: white;
   }
 }
@@ -346,7 +335,7 @@ MEDIA QUERIES
 
 @media (max-width: 576px) {
   html {
-    height: 100%
+    height: 100%;
   }
 
   .container {
