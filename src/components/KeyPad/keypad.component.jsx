@@ -2,11 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import Key from '../Key/key.component';
+import InputKey from '../InputKey/input-key.component';
 
 import { KeypadContainer } from './keypad.styles';
 
-const keys = [
+const inputKeys = [
   { label: 'C' },
   { label: <FontAwesomeIcon icon={faArrowLeft} /> },
   { label: '( )' },
@@ -39,7 +39,7 @@ const keys = [
 
 const KeyPad = () => {
   const renderKeys = () => {
-    return keys.map(key => <Key label={key.label} />);
+    return inputKeys.map(key => <InputKey label={key.label} />);
   };
   return <KeypadContainer>{renderKeys()}</KeypadContainer>;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import KeyContainer from './key.styles.js';
+import KeyContainer from './input-key.styles.js';
 
 const Key = ({ label }) => {
   return <KeyContainer>{label}</KeyContainer>;
