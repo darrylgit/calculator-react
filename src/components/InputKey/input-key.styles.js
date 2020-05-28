@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+// Render styles conditionally for each type of input key
 const clearKeyStyles = css`
+  font-size: 5rem;
   color: #ff3545;
   background-color: rgba(255, 255, 255, 0);
 
@@ -11,17 +13,30 @@ const clearKeyStyles = css`
   }
 `;
 
-const utilKeyStyles = css`
-  color: #727272;
-  background-color: rgba(255, 255, 255, 0);
+const utilKeyStyles = id => {
+  const fontSizesHash = {
+    decimal: '5rem',
+    negative: '3rem',
+    parentheses: '4rem',
+    backspace: '3.5rem'
+  };
 
-  &:hover {
-    background-color: #727272;
-    color: #fff;
-  }
-`;
+  const styles = css`
+    font-size: ${fontSizesHash[id]};
+    color: #727272;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:hover {
+      background-color: #727272;
+      color: #fff;
+    }
+  `;
+
+  return styles;
+};
 
 const numKeyStyles = css`
+  font-size: 5rem;
   color: #6fa7c6;
   background-color: rgba(255, 255, 255, 0);
 
@@ -32,6 +47,7 @@ const numKeyStyles = css`
 `;
 
 const operatorKeyStyles = css`
+  font-size: 5rem;
   color: #ff8a35;
   background-color: rgba(255, 255, 255, 0);
 
@@ -42,19 +58,20 @@ const operatorKeyStyles = css`
 `;
 
 const equalsKeyStyles = css`
+  font-size: 5rem;
   color: white;
   background-color: #35aaff;
 
   &:hover {
-    color: rgba(255, 255, 255, 0);
+    color: white;
     background-color: #006097;
   }
 `;
 
-const getKeyStyles = ({ type }) => {
+const getKeyStyles = ({ type, id }) => {
   const keyStylesHash = {
     clear: clearKeyStyles,
-    util: utilKeyStyles,
+    util: utilKeyStyles(id),
     num: numKeyStyles,
     operator: operatorKeyStyles,
     equals: equalsKeyStyles
@@ -63,6 +80,7 @@ const getKeyStyles = ({ type }) => {
   return keyStylesHash[type] || '';
 };
 
+// General button styles
 // All this work to get some circles:
 
 export const KeyOuter = styled.div`

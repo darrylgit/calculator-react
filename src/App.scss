@@ -30,6 +30,11 @@ body {
   background-repeat: no-repeat;
 }
 
+html {
+  // Defines 1rem
+  font-size: 62.5%;
+}
+
 body {
   height: 100vh;
   width: 100%;

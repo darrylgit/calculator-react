@@ -49,9 +49,7 @@ const inputKeys = [
 
 const KeyPad = () => {
   const renderInputKeys = () => {
-    return inputKeys.map(({ id, ...otherProps }) => (
-      <InputKey key={id} {...otherProps} />
-    ));
+    return inputKeys.map(props => <InputKey key={props.id} {...props} />);
   };
 
   return <KeypadContainer>{renderInputKeys()}</KeypadContainer>;
