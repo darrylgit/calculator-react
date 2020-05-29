@@ -13,7 +13,7 @@ const clearKeyStyles = css`
   }
 `;
 
-const utilKeyStyles = id => {
+const utilKeyStyles = value => {
   const fontSizesHash = {
     decimal: '5rem',
     negative: '3rem',
@@ -22,7 +22,7 @@ const utilKeyStyles = id => {
   };
 
   const styles = css`
-    font-size: ${fontSizesHash[id]};
+    font-size: ${fontSizesHash[value]};
     color: #727272;
     background-color: rgba(255, 255, 255, 0);
 
@@ -68,10 +68,10 @@ const equalsKeyStyles = css`
   }
 `;
 
-const getKeyStyles = ({ type, id }) => {
+const getKeyStyles = ({ type, value }) => {
   const keyStylesHash = {
     clear: clearKeyStyles,
-    util: utilKeyStyles(id),
+    util: utilKeyStyles(value),
     num: numKeyStyles,
     operator: operatorKeyStyles,
     equals: equalsKeyStyles

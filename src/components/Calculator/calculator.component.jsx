@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Display from '../Display/display.component';
-import KeyPad from '../KeyPad/keypad.component';
+import Keypad from '../Keypad/keypad.component';
 
 import { CalculatorContainer } from './calculator.styles';
 
@@ -9,7 +9,7 @@ const Calculator = () => {
   return (
     <CalculatorContainer>
       <Display />
-      <KeyPad />
+      <Keypad />
     </CalculatorContainer>
   );
 };

@@ -2,10 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import InputKey from '../InputKey/input-key.component';
-
-import { KeypadContainer } from './keypad.styles';
-
+// Prepare array of input key data for iteration within component
 const negativeLabel = (
   <div>
     <strong>{String.fromCharCode(43)}</strong>
@@ -14,8 +11,8 @@ const negativeLabel = (
   </div>
 );
 
-function InputKeyFactory(id, label, type) {
-  this.id = id;
+function InputKeyFactory(value, label, type) {
+  this.value = value;
   this.label = label;
   this.type = type;
 }
@@ -47,12 +44,4 @@ const inputKeys = [
   new InputKeyFactory('equals', '=', 'equals')
 ];
 
-const KeyPad = () => {
-  const renderInputKeys = () => {
-    return inputKeys.map(props => <InputKey key={props.id} {...props} />);
-  };
-
-  return <KeypadContainer>{renderInputKeys()}</KeypadContainer>;
-};
-
-export default KeyPad;
+export default React.createContext(inputKeys);
