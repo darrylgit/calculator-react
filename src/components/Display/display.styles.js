@@ -7,10 +7,11 @@ export const DisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding-bottom: 6.5rem;
 
   .outputs {
     color: #fff;
-    margin-bottom: 6.5rem;
+
     padding-right: 1rem;
     display: flex;
     justify-content: flex-end;

@@ -21,6 +21,10 @@ $bg-val2: #ffbc97;
   background-size: $size;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   min-height: 100%;
