@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+"<Calculator>
+  <styled.div>
+    <div className=\\"sc-AxgMl fWFYAo\\">
+      <Display>
+        <styled.div>
+          <div className=\\"sc-AxjAm ePhIG\\">
+            <div className=\\"outputs\\">
+              <div className=\\"preview\\" />
+              <div className=\\"main\\">
+                 
+              </div>
+            </div>
+          </div>
+        </styled.div>
+      </Display>
+      <KeyPad>
+        <styled.div>
+          <div className=\\"sc-AxhUy IYOeL\\">
+            <InputKey value=\\" **CLEAR** \\" label=\\"C\\" type=\\"clear\\">
+              <_default type=\\"clear\\" label=\\"C\\" value=\\" **CLEAR** \\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"clear\\" label=\\"C\\" value=\\" **CLEAR** \\" onClick={[Function: onClick]}>
+                          <div type=\\"clear\\" label=\\"C\\" value=\\" **CLEAR** \\" onClick={[Function: onClick]} className=\\"sc-AxiKw fcXlqn\\">
+                            C
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\" **BACKSPACE** \\" label={{...}} type=\\"util\\">
+              <_default type=\\"util\\" label={{...}} value=\\" **BACKSPACE** \\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"util\\" label={{...}} value=\\" **BACKSPACE** \\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label={{...}} value=\\" **BACKSPACE** \\" onClick={[Function: onClick]} className=\\"sc-AxiKw kocETC\\">
+                            <FontAwesomeIcon icon={{...}} border={false} className=\\"\\" mask={{...}} fixedWidth={false} inverse={false} flip={{...}} listItem={false} pull={{...}} pulse={false} rotation={{...}} size={{...}} spin={false} symbol={false} title=\\"\\" transform={{...}} swapOpacity={false}>
+                              <svg aria-hidden=\\"true\\" focusable=\\"false\\" data-prefix=\\"fas\\" data-icon=\\"arrow-left\\" className=\\"svg-inline--fa fa-arrow-left fa-w-14 \\" role=\\"img\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 448 512\\" style={{...}}>
+                                <path fill=\\"currentColor\\" d=\\"M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z\\" style={{...}} />
+                              </svg>
+                            </FontAwesomeIcon>
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\"parentheses\\" label=\\"( )\\" type=\\"util\\">
+              <_default type=\\"util\\" label=\\"( )\\" value=\\"parentheses\\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"util\\" label=\\"( )\\" value=\\"parentheses\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label=\\"( )\\" value=\\"parentheses\\" onClick={[Function: onClick]} className=\\"sc-AxiKw hROJJW\\">
+                            ( )
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\" ÷ \\" label=\\" ÷ \\" type=\\"operator\\">
+              <_default type=\\"operator\\" label=\\" ÷ \\" value=\\" ÷ \\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"operator\\" label=\\" ÷ \\" value=\\" ÷ \\" onClick={[Function: onClick]}>
+                          <div type=\\"operator\\" label=\\" ÷ \\" value=\\" ÷ \\" onClick={[Function: onClick]} className=\\"sc-AxiKw ezXvin\\">
+                             ÷ 
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={7} label=\\"7\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"7\\" value={7} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"7\\" value={7} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"7\\" value={7} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            7
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={8} label=\\"8\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"8\\" value={8} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"8\\" value={8} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"8\\" value={8} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            8
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={9} label=\\"9\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"9\\" value={9} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"9\\" value={9} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"9\\" value={9} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            9
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\" × \\" label=\\" × \\" type=\\"operator\\">
+              <_default type=\\"operator\\" label=\\" × \\" value=\\" × \\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"operator\\" label=\\" × \\" value=\\" × \\" onClick={[Function: onClick]}>
+                          <div type=\\"operator\\" label=\\" × \\" value=\\" × \\" onClick={[Function: onClick]} className=\\"sc-AxiKw ezXvin\\">
+                             × 
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={4} label=\\"4\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"4\\" value={4} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"4\\" value={4} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"4\\" value={4} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            4
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={5} label=\\"5\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"5\\" value={5} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"5\\" value={5} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"5\\" value={5} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            5
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={6} label=\\"6\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"6\\" value={6} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"6\\" value={6} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"6\\" value={6} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            6
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\" − \\" label=\\" − \\" type=\\"operator\\">
+              <_default type=\\"operator\\" label=\\" − \\" value=\\" − \\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"operator\\" label=\\" − \\" value=\\" − \\" onClick={[Function: onClick]}>
+                          <div type=\\"operator\\" label=\\" − \\" value=\\" − \\" onClick={[Function: onClick]} className=\\"sc-AxiKw ezXvin\\">
+                             − 
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={1} label=\\"1\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"1\\" value={1} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"1\\" value={1} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"1\\" value={1} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            1
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={2} label=\\"2\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"2\\" value={2} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"2\\" value={2} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"2\\" value={2} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            2
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={3} label=\\"3\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"3\\" value={3} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"3\\" value={3} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"3\\" value={3} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            3
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\" + \\" label=\\" + \\" type=\\"operator\\">
+              <_default type=\\"operator\\" label=\\" + \\" value=\\" + \\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"operator\\" label=\\" + \\" value=\\" + \\" onClick={[Function: onClick]}>
+                          <div type=\\"operator\\" label=\\" + \\" value=\\" + \\" onClick={[Function: onClick]} className=\\"sc-AxiKw ezXvin\\">
+                             + 
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\"negative\\" label={{...}} type=\\"util\\">
+              <_default type=\\"util\\" label={{...}} value=\\"negative\\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"util\\" label={{...}} value=\\"negative\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label={{...}} value=\\"negative\\" onClick={[Function: onClick]} className=\\"sc-AxiKw jUqkXN\\">
+                            <div>
+                              <strong>
+                                +
+                              </strong>
+                              /
+                              <strong>
+                                −
+                              </strong>
+                            </div>
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value={0} label=\\"0\\" type=\\"num\\">
+              <_default type=\\"num\\" label=\\"0\\" value={0} onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"num\\" label=\\"0\\" value={0} onClick={[Function: onClick]}>
+                          <div type=\\"num\\" label=\\"0\\" value={0} onClick={[Function: onClick]} className=\\"sc-AxiKw dwulIh\\">
+                            0
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\"decimal\\" label=\\".\\" type=\\"util\\">
+              <_default type=\\"util\\" label=\\".\\" value=\\"decimal\\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"util\\" label=\\".\\" value=\\"decimal\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label=\\".\\" value=\\"decimal\\" onClick={[Function: onClick]} className=\\"sc-AxiKw fDiuPP\\">
+                            .
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+            <InputKey value=\\"equals\\" label=\\"=\\" type=\\"equals\\">
+              <_default type=\\"equals\\" label=\\"=\\" value=\\"equals\\" onClick={[Function: onClick]}>
+                <styled.div>
+                  <div className=\\"sc-AxhCb jdovTQ\\">
+                    <styled.div>
+                      <div className=\\"sc-AxirZ eFNAXz\\">
+                        <styled.div type=\\"equals\\" label=\\"=\\" value=\\"equals\\" onClick={[Function: onClick]}>
+                          <div type=\\"equals\\" label=\\"=\\" value=\\"equals\\" onClick={[Function: onClick]} className=\\"sc-AxiKw cuUIap\\">
+                            =
+                          </div>
+                        </styled.div>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </_default>
+            </InputKey>
+          </div>
+        </styled.div>
+      </KeyPad>
+    </div>
+  </styled.div>
+</Calculator>"
+`;

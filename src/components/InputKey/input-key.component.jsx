@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import KeyContainer from './input-key.styles.js';
 import CalcContext from '../../contexts/calcContext';
 
-const Key = ({ label, type, value }) => {
+const InputKey = ({ label, type, value }) => {
   const { pushValue } = useContext(CalcContext);
 
   return (
@@ -18,4 +18,4 @@ const Key = ({ label, type, value }) => {
   );
 };
 
-export default Key;
+export default InputKey;
