@@ -1,8 +1,10 @@
 import newValueHandler from './newValueHandler';
 
 it('concatenates new non-zero numbers into the current index', () => {
-  const values = [5];
-  const newValue = 6;
+  expect(newValueHandler([], 5)).toEqual([5]);
+  expect(newValueHandler([5], 6)).toEqual([56]);
+});
 
-  expect(newValueHandler(values, newValue)).toEqual([56]);
+it('disallows multiple initial zeroes', () => {
+  expect(newValueHandler([0], 0)).toEqual([0]);
 });
