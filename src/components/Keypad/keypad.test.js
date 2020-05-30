@@ -1,9 +1,8 @@
-import { shallow, mount } from 'enzyme';
-import React, { useContext } from 'react';
+import { shallow } from 'enzyme';
+import React from 'react';
 
 import Keypad from './keypad.component';
-import InputKey from '../InputKey/input-key.component';
-import CalcContext from '../../contexts/calcContext';
+
 import {
   ADD,
   SUBTRACT,
@@ -16,8 +15,6 @@ import {
   EQUALS,
   DECIMAL
 } from '../../constants';
-
-import * as constants from '../../constants';
 
 describe('render keypad', () => {
   let keypad;
