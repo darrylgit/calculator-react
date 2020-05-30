@@ -19,14 +19,14 @@ exports[`renders without crashing 1`] = `
       <KeyPad>
         <styled.div>
           <div className=\\"sc-AxhUy IYOeL\\">
-            <InputKey value=\\" **CLEAR** \\" label=\\"C\\" type=\\"clear\\">
-              <_default type=\\"clear\\" label=\\"C\\" value=\\" **CLEAR** \\" onClick={[Function: onClick]}>
+            <InputKey value=\\"CLEAR\\" label=\\"C\\" type=\\"clear\\">
+              <_default type=\\"clear\\" label=\\"C\\" value=\\"CLEAR\\" onClick={[Function: onClick]}>
                 <styled.div>
                   <div className=\\"sc-AxhCb jdovTQ\\">
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
-                        <styled.div type=\\"clear\\" label=\\"C\\" value=\\" **CLEAR** \\" onClick={[Function: onClick]}>
-                          <div type=\\"clear\\" label=\\"C\\" value=\\" **CLEAR** \\" onClick={[Function: onClick]} className=\\"sc-AxiKw fcXlqn\\">
+                        <styled.div type=\\"clear\\" label=\\"C\\" value=\\"CLEAR\\" onClick={[Function: onClick]}>
+                          <div type=\\"clear\\" label=\\"C\\" value=\\"CLEAR\\" onClick={[Function: onClick]} className=\\"sc-AxiKw fcXlqn\\">
                             C
                           </div>
                         </styled.div>
@@ -36,14 +36,14 @@ exports[`renders without crashing 1`] = `
                 </styled.div>
               </_default>
             </InputKey>
-            <InputKey value=\\" **BACKSPACE** \\" label={{...}} type=\\"util\\">
-              <_default type=\\"util\\" label={{...}} value=\\" **BACKSPACE** \\" onClick={[Function: onClick]}>
+            <InputKey value=\\"BACKSPACE\\" label={{...}} type=\\"util\\">
+              <_default type=\\"util\\" label={{...}} value=\\"BACKSPACE\\" onClick={[Function: onClick]}>
                 <styled.div>
                   <div className=\\"sc-AxhCb jdovTQ\\">
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
-                        <styled.div type=\\"util\\" label={{...}} value=\\" **BACKSPACE** \\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label={{...}} value=\\" **BACKSPACE** \\" onClick={[Function: onClick]} className=\\"sc-AxiKw kocETC\\">
+                        <styled.div type=\\"util\\" label={{...}} value=\\"BACKSPACE\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label={{...}} value=\\"BACKSPACE\\" onClick={[Function: onClick]} className=\\"sc-AxiKw kocETC\\">
                             <FontAwesomeIcon icon={{...}} border={false} className=\\"\\" mask={{...}} fixedWidth={false} inverse={false} flip={{...}} listItem={false} pull={{...}} pulse={false} rotation={{...}} size={{...}} spin={false} symbol={false} title=\\"\\" transform={{...}} swapOpacity={false}>
                               <svg aria-hidden=\\"true\\" focusable=\\"false\\" data-prefix=\\"fas\\" data-icon=\\"arrow-left\\" className=\\"svg-inline--fa fa-arrow-left fa-w-14 \\" role=\\"img\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 448 512\\" style={{...}}>
                                 <path fill=\\"currentColor\\" d=\\"M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z\\" style={{...}} />
@@ -57,14 +57,14 @@ exports[`renders without crashing 1`] = `
                 </styled.div>
               </_default>
             </InputKey>
-            <InputKey value=\\"parentheses\\" label=\\"( )\\" type=\\"util\\">
-              <_default type=\\"util\\" label=\\"( )\\" value=\\"parentheses\\" onClick={[Function: onClick]}>
+            <InputKey value=\\"PARENTHESES\\" label=\\"( )\\" type=\\"util\\">
+              <_default type=\\"util\\" label=\\"( )\\" value=\\"PARENTHESES\\" onClick={[Function: onClick]}>
                 <styled.div>
                   <div className=\\"sc-AxhCb jdovTQ\\">
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
-                        <styled.div type=\\"util\\" label=\\"( )\\" value=\\"parentheses\\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label=\\"( )\\" value=\\"parentheses\\" onClick={[Function: onClick]} className=\\"sc-AxiKw hROJJW\\">
+                        <styled.div type=\\"util\\" label=\\"( )\\" value=\\"PARENTHESES\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label=\\"( )\\" value=\\"PARENTHESES\\" onClick={[Function: onClick]} className=\\"sc-AxiKw AyWOY\\">
                             ( )
                           </div>
                         </styled.div>
@@ -295,14 +295,14 @@ exports[`renders without crashing 1`] = `
                 </styled.div>
               </_default>
             </InputKey>
-            <InputKey value=\\"negative\\" label={{...}} type=\\"util\\">
-              <_default type=\\"util\\" label={{...}} value=\\"negative\\" onClick={[Function: onClick]}>
+            <InputKey value=\\"NEGATIVE\\" label={{...}} type=\\"util\\">
+              <_default type=\\"util\\" label={{...}} value=\\"NEGATIVE\\" onClick={[Function: onClick]}>
                 <styled.div>
                   <div className=\\"sc-AxhCb jdovTQ\\">
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
-                        <styled.div type=\\"util\\" label={{...}} value=\\"negative\\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label={{...}} value=\\"negative\\" onClick={[Function: onClick]} className=\\"sc-AxiKw jUqkXN\\">
+                        <styled.div type=\\"util\\" label={{...}} value=\\"NEGATIVE\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label={{...}} value=\\"NEGATIVE\\" onClick={[Function: onClick]} className=\\"sc-AxiKw AyWOY\\">
                             <div>
                               <strong>
                                 +
@@ -337,14 +337,14 @@ exports[`renders without crashing 1`] = `
                 </styled.div>
               </_default>
             </InputKey>
-            <InputKey value=\\"decimal\\" label=\\".\\" type=\\"util\\">
-              <_default type=\\"util\\" label=\\".\\" value=\\"decimal\\" onClick={[Function: onClick]}>
+            <InputKey value=\\"DECIMAL\\" label=\\".\\" type=\\"util\\">
+              <_default type=\\"util\\" label=\\".\\" value=\\"DECIMAL\\" onClick={[Function: onClick]}>
                 <styled.div>
                   <div className=\\"sc-AxhCb jdovTQ\\">
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
-                        <styled.div type=\\"util\\" label=\\".\\" value=\\"decimal\\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label=\\".\\" value=\\"decimal\\" onClick={[Function: onClick]} className=\\"sc-AxiKw fDiuPP\\">
+                        <styled.div type=\\"util\\" label=\\".\\" value=\\"DECIMAL\\" onClick={[Function: onClick]}>
+                          <div type=\\"util\\" label=\\".\\" value=\\"DECIMAL\\" onClick={[Function: onClick]} className=\\"sc-AxiKw AyWOY\\">
                             .
                           </div>
                         </styled.div>
@@ -354,14 +354,14 @@ exports[`renders without crashing 1`] = `
                 </styled.div>
               </_default>
             </InputKey>
-            <InputKey value=\\"equals\\" label=\\"=\\" type=\\"equals\\">
-              <_default type=\\"equals\\" label=\\"=\\" value=\\"equals\\" onClick={[Function: onClick]}>
+            <InputKey value=\\"EQUALS\\" label=\\"=\\" type=\\"equals\\">
+              <_default type=\\"equals\\" label=\\"=\\" value=\\"EQUALS\\" onClick={[Function: onClick]}>
                 <styled.div>
                   <div className=\\"sc-AxhCb jdovTQ\\">
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
-                        <styled.div type=\\"equals\\" label=\\"=\\" value=\\"equals\\" onClick={[Function: onClick]}>
-                          <div type=\\"equals\\" label=\\"=\\" value=\\"equals\\" onClick={[Function: onClick]} className=\\"sc-AxiKw cuUIap\\">
+                        <styled.div type=\\"equals\\" label=\\"=\\" value=\\"EQUALS\\" onClick={[Function: onClick]}>
+                          <div type=\\"equals\\" label=\\"=\\" value=\\"EQUALS\\" onClick={[Function: onClick]} className=\\"sc-AxiKw cuUIap\\">
                             =
                           </div>
                         </styled.div>

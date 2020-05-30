@@ -8,7 +8,11 @@ import {
   SUBTRACT,
   ADD,
   CLEAR,
-  BACKSPACE
+  BACKSPACE,
+  PARENTHESES,
+  NEGATIVE,
+  DECIMAL,
+  EQUALS
 } from '../constants';
 
 // Prepare array of input key data for iteration within component
@@ -33,7 +37,7 @@ const inputKeys = [
     <FontAwesomeIcon icon={faArrowLeft} />,
     'util'
   ),
-  new InputKeyFactory('parentheses', '( )', 'util'),
+  new InputKeyFactory(PARENTHESES, '( )', 'util'),
   new InputKeyFactory(DIVIDE, DIVIDE, 'operator'),
   new InputKeyFactory(7, '7', 'num'),
   new InputKeyFactory(8, '8', 'num'),
@@ -47,10 +51,10 @@ const inputKeys = [
   new InputKeyFactory(2, '2', 'num'),
   new InputKeyFactory(3, '3', 'num'),
   new InputKeyFactory(ADD, ADD, 'operator'),
-  new InputKeyFactory('negative', negativeLabel, 'util'),
+  new InputKeyFactory(NEGATIVE, negativeLabel, 'util'),
   new InputKeyFactory(0, '0', 'num'),
-  new InputKeyFactory('decimal', '.', 'util'),
-  new InputKeyFactory('equals', '=', 'equals')
+  new InputKeyFactory(DECIMAL, '.', 'util'),
+  new InputKeyFactory(EQUALS, '=', 'equals')
 ];
 
 export default React.createContext(inputKeys);
