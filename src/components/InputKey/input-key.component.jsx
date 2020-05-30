@@ -4,7 +4,7 @@ import KeyContainer from './input-key.styles.js';
 import CalcContext from '../../contexts/calcContext';
 
 const Key = ({ label, type, value }) => {
-  const { values, pushValue } = useContext(CalcContext);
+  const { pushValue } = useContext(CalcContext);
 
   return (
     <KeyContainer

@@ -1,9 +1,11 @@
-import { DIVIDE, MULTIPLY, SUBTRACT, ADD, CLEAR } from '../../constants';
-
-// const isNatural = val => {
-//   const naturalNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-//   return naturalNumbers.includes(val);
-// };
+import {
+  DIVIDE,
+  MULTIPLY,
+  SUBTRACT,
+  ADD,
+  CLEAR,
+  BACKSPACE
+} from '../../constants';
 
 const isOperator = val => [DIVIDE, MULTIPLY, SUBTRACT, ADD].includes(val);
 
@@ -15,6 +17,29 @@ export default (currentValues, newValue) => {
     return [];
   }
 
+  // HANDLE BACKSPACE
+  if (newValue === BACKSPACE) {
+    if (!values.length) {
+      return values;
+    }
+
+    let lastValue = values.pop();
+
+    // If last value is an operator, return array without that operator
+    if (isOperator(lastValue)) {
+      return values;
+    }
+
+    // If number, delete last digit (or whole number if single-digit)
+    if (typeof lastValue == 'number') {
+      lastValue /= 10;
+      return Math.floor(lastValue)
+        ? [...values, Math.floor(lastValue)]
+        : values;
+    }
+  }
+
+  // HANDLE NUMBERS
   if (typeof newValue == 'number') {
     let lastValue = values.pop() || 0;
 
@@ -27,6 +52,8 @@ export default (currentValues, newValue) => {
     lastValue *= 10;
     lastValue += newValue;
     return [...values, lastValue];
+
+    // HANDLE OPERATORS
   } else if (isOperator(newValue)) {
     // Disallow initial operators:
     if (!values.length) {
