@@ -101,6 +101,8 @@ export const KeyInner = styled.div`
   justify-content: center;
   align-items: center;
   align-self: center;
+  user-select: none;
+  -moz-user-select: none;
   cursor pointer;
 
   ${getKeyStyles}
