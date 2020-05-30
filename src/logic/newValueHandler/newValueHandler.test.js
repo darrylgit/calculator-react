@@ -1,5 +1,5 @@
 import newValueHandler from './newValueHandler';
-import { DIVIDE, MULTIPLY, SUBTRACT, ADD } from '../../constants';
+import { DIVIDE, MULTIPLY, SUBTRACT, ADD, CLEAR } from '../../constants';
 
 it('concatenates new non-zero numbers into the current index', () => {
   expect(newValueHandler([], 5)).toEqual([5]);
@@ -21,7 +21,11 @@ it('disallows initial operators', () => {
   expect(newValueHandler([], ADD)).toEqual([]);
 });
 
-it('disallows two consecutive operators', () => {
+it('disallows multiple consecutive operators', () => {
   expect(newValueHandler(['23', ADD], ADD)).toEqual(['23', ADD]);
   expect(newValueHandler(['23', ADD], SUBTRACT)).toEqual(['23', SUBTRACT]);
+});
+
+it('clears values array when input is CLEAR', () => {
+  expect(newValueHandler([432, DIVIDE, 4], CLEAR)).toEqual([]);
 });

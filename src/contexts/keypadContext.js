@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { DIVIDE, MULTIPLY, SUBTRACT, ADD } from '../constants';
+import { DIVIDE, MULTIPLY, SUBTRACT, ADD, CLEAR } from '../constants';
 
 // Prepare array of input key data for iteration within component
 const negativeLabel = (
@@ -20,7 +20,7 @@ function InputKeyFactory(value, label, type) {
 }
 
 const inputKeys = [
-  new InputKeyFactory('clear', 'C', 'clear'),
+  new InputKeyFactory(CLEAR, 'C', 'clear'),
   new InputKeyFactory(
     'backspace',
     <FontAwesomeIcon icon={faArrowLeft} />,

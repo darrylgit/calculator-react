@@ -1,4 +1,4 @@
-import { DIVIDE, MULTIPLY, SUBTRACT, ADD } from '../../constants';
+import { DIVIDE, MULTIPLY, SUBTRACT, ADD, CLEAR } from '../../constants';
 
 // const isNatural = val => {
 //   const naturalNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -9,6 +9,11 @@ const isOperator = val => [DIVIDE, MULTIPLY, SUBTRACT, ADD].includes(val);
 
 export default (currentValues, newValue) => {
   let values = [...currentValues];
+
+  // HANDLE CLEAR
+  if (newValue === CLEAR) {
+    return [];
+  }
 
   if (typeof newValue == 'number') {
     let lastValue = values.pop() || 0;
@@ -21,16 +26,14 @@ export default (currentValues, newValue) => {
     // If the current last value is a number, add incoming number as digit to that number
     lastValue *= 10;
     lastValue += newValue;
-    values.push(lastValue);
-
-    return values;
+    return [...values, lastValue];
   } else if (isOperator(newValue)) {
     // Disallow initial operators:
     if (!values.length) {
       return values;
     }
 
-    let lastValue = values.pop() || 0;
+    let lastValue = values.pop();
 
     // Only add incoming operator as new index if lastValue isn't an operator
     if (!isOperator(lastValue)) {
