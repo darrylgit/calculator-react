@@ -11,3 +11,6 @@ export const NEGATIVE = 'NEGATIVE';
 export const DECIMAL = 'DECIMAL';
 
 export const EQUALS = 'EQUALS';
+
+export const OPENPAR = '(';
+export const CLOSEPAR = ')';

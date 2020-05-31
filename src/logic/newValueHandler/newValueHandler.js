@@ -4,7 +4,11 @@ import {
   SUBTRACT,
   ADD,
   CLEAR,
-  BACKSPACE
+  BACKSPACE,
+  PARENTHESES,
+  OPENPAR,
+  CLOSEPAR,
+  DECIMAL
 } from '../../constants';
 
 const isOperator = val => [DIVIDE, MULTIPLY, SUBTRACT, ADD].includes(val);
@@ -39,6 +43,39 @@ export default (currentValues, newValue) => {
     }
   }
 
+  // HANDLE PARENTHESES
+  if (newValue === PARENTHESES) {
+    // Push an opening parenthesis when array is empty
+    if (!values.length) {
+      return [OPENPAR];
+    }
+
+    const parCount = values.reduce(
+      (acc, val) => (val === OPENPAR || val === CLOSEPAR ? acc + 1 : acc),
+      0
+    );
+    const openParCount = values.reduce(
+      (acc, val) => (val === OPENPAR ? acc + 1 : acc),
+      0
+    );
+    const closeParCount = values.reduce(
+      (acc, val) => (val === CLOSEPAR ? acc + 1 : acc),
+      0
+    );
+
+    let lastValue = values.pop();
+
+    if (typeof lastValue == 'number') {
+      if (!parCount) {
+        return [...values, lastValue, MULTIPLY, OPENPAR];
+      }
+    } else if (lastValue === '.') {
+      if (!parCount) {
+        return [...values, MULTIPLY, OPENPAR];
+      }
+    }
+  }
+
   // HANDLE NUMBERS
   if (typeof newValue == 'number') {
     let lastValue = values.pop() || 0;
@@ -68,5 +105,5 @@ export default (currentValues, newValue) => {
     }
   }
 
-  return [...values, newValue];
+  return ['ERR: UNHANDLED CASE'];
 };

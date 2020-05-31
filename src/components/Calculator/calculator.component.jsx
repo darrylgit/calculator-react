@@ -10,11 +10,7 @@ import newValueHandler from '../../logic/newValueHandler/newValueHandler';
 const Calculator = () => {
   const [values, setValues] = useState([]);
   const pushValue = newValue => setValues(newValueHandler(values, newValue));
-  // const pushValue = (currentVals, newValue) => {
-  //   const updatedValues = newValueHandler(currentVals, newValue);
 
-  //   setValues(updatedValues);
-  // };
   return (
     <CalculatorContainer>
       <CalcContext.Provider
