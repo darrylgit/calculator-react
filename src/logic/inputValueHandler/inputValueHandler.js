@@ -8,7 +8,8 @@ import {
   PARENTHESES,
   OPENPAR,
   CLOSEPAR,
-  DECIMAL
+  DECIMAL,
+  NEGATIVE
 } from '../../constants';
 
 import isOperator from '../../utils/isOperator';
@@ -117,6 +118,34 @@ export default (currentValues, inputValue) => {
     }
   }
 
+  // HANDLE NEGATIVE
+  if (inputValue === NEGATIVE) {
+    if (!values.length) {
+      return ['-'];
+    }
+
+    let lastValue = values.pop();
+
+    if (typeof lastValue === 'number') {
+      lastValue *= -1;
+      return [...values, lastValue];
+    }
+
+    if (lastValue === '.') {
+      lastValue = values.pop();
+      lastValue *= -1;
+      return [...values, lastValue, '.'];
+    }
+
+    if (lastValue === CLOSEPAR) {
+      return [...values, lastValue, MULTIPLY, '-'];
+    }
+
+    if (isOperator(lastValue) || lastValue == OPENPAR) {
+      return [...values, lastValue, '-'];
+    }
+  }
+
   // HANDLE NUMBERS
   if (typeof inputValue == 'number') {
     let lastValue = values.pop() || 0;
@@ -127,9 +156,21 @@ export default (currentValues, inputValue) => {
     }
 
     // If the current last value is a number, add incoming number as digit to that number
-    lastValue *= 10;
-    lastValue += inputValue;
-    return [...values, lastValue];
+    if (typeof lastValue === 'number') {
+      lastValue *= 10;
+      lastValue += inputValue;
+      return [...values, lastValue];
+    }
+
+    // If the current last value is an opening parenthesis
+    if (lastValue === OPENPAR) {
+      return [...values, lastValue, inputValue];
+    }
+
+    // If the current last value is a negative sign, coerce inputValue to be negative
+    if (lastValue === '-') {
+      return [...values, inputValue * -1];
+    }
 
     // HANDLE OPERATORS
   } else if (isOperator(inputValue)) {

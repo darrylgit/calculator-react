@@ -5,12 +5,12 @@ import Keypad from '../Keypad/keypad.component';
 
 import { CalculatorContainer } from './calculator.styles';
 import CalcContext from '../../contexts/calcContext';
-import newValueHandler from '../../logic/newValueHandler/newValueHandler';
+import inputValueHandler from '../../logic/inputValueHandler/inputValueHandler';
 
 const Calculator = () => {
   const [values, setValues] = useState([]);
   const pushValue = inputValue =>
-    setValues(newValueHandler(values, inputValue));
+    setValues(inputValueHandler(values, inputValue));
 
   return (
     <CalculatorContainer>
