@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { BACKSPACE } from '../../constants';
+import { BACKSPACE, PARENTHESES, DECIMAL, NEGATIVE } from '../../constants';
 
 // Render styles conditionally for each type of input key
 const clearKeyStyles = css`
@@ -17,9 +17,9 @@ const clearKeyStyles = css`
 
 const utilKeyStyles = value => {
   const fontSizesHash = {
-    decimal: '5rem',
-    negative: '3rem',
-    parentheses: '4rem',
+    [DECIMAL]: '5rem',
+    [NEGATIVE]: '3rem',
+    [PARENTHESES]: '4rem',
     [BACKSPACE]: '3.5rem'
   };
 

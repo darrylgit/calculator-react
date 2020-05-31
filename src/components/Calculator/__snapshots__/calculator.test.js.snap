@@ -64,7 +64,7 @@ exports[`renders without crashing 1`] = `
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
                         <styled.div type=\\"util\\" label=\\"( )\\" value=\\"PARENTHESES\\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label=\\"( )\\" value=\\"PARENTHESES\\" onClick={[Function: onClick]} className=\\"sc-AxiKw AyWOY\\">
+                          <div type=\\"util\\" label=\\"( )\\" value=\\"PARENTHESES\\" onClick={[Function: onClick]} className=\\"sc-AxiKw hROJJW\\">
                             ( )
                           </div>
                         </styled.div>
@@ -302,7 +302,7 @@ exports[`renders without crashing 1`] = `
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
                         <styled.div type=\\"util\\" label={{...}} value=\\"NEGATIVE\\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label={{...}} value=\\"NEGATIVE\\" onClick={[Function: onClick]} className=\\"sc-AxiKw AyWOY\\">
+                          <div type=\\"util\\" label={{...}} value=\\"NEGATIVE\\" onClick={[Function: onClick]} className=\\"sc-AxiKw jUqkXN\\">
                             <div>
                               <strong>
                                 +
@@ -344,7 +344,7 @@ exports[`renders without crashing 1`] = `
                     <styled.div>
                       <div className=\\"sc-AxirZ eFNAXz\\">
                         <styled.div type=\\"util\\" label=\\".\\" value=\\"DECIMAL\\" onClick={[Function: onClick]}>
-                          <div type=\\"util\\" label=\\".\\" value=\\"DECIMAL\\" onClick={[Function: onClick]} className=\\"sc-AxiKw AyWOY\\">
+                          <div type=\\"util\\" label=\\".\\" value=\\"DECIMAL\\" onClick={[Function: onClick]} className=\\"sc-AxiKw fDiuPP\\">
                             .
                           </div>
                         </styled.div>
