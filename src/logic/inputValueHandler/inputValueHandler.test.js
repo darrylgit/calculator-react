@@ -134,6 +134,13 @@ describe('BACKSPACE input', () => {
   it('deletes digits', () => {
     expect(inputValueHandler([12], BACKSPACE)).toEqual([1]);
     expect(inputValueHandler([13, ADD, 23], BACKSPACE)).toEqual([13, ADD, 2]);
+    expect(inputValueHandler([13, ADD, 23.34], BACKSPACE)).toEqual([
+      13,
+      ADD,
+      23.3
+    ]);
+    // Idk if this is best behavior, might change later
+    expect(inputValueHandler([2.3], BACKSPACE)).toEqual([2]);
   });
 
   it('deletes entire single-digit numbers', () => {
@@ -152,6 +159,17 @@ describe('BACKSPACE input', () => {
       MULTIPLY,
       OPENPAR
     ]);
+  });
+
+  it('deletes parentheses', () => {
+    expect(inputValueHandler([OPENPAR], BACKSPACE)).toEqual([]);
+    expect(
+      inputValueHandler([OPENPAR, 3, DIVIDE, 1, CLOSEPAR], BACKSPACE)
+    ).toEqual([OPENPAR, 3, DIVIDE, 1]);
+  });
+
+  it('deletes hidden (automatically generated) MULTIPLYs', () => {
+    expect(inputValueHandler([5, MULTIPLY, OPENPAR], BACKSPACE)).toEqual([5]);
   });
 });
 
