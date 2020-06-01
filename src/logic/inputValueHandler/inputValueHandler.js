@@ -230,7 +230,7 @@ export default (currentValues, inputValue) => {
       case '.':
         let precedingInteger = values.pop();
         let newFloat = precedingInteger.toString() + '.' + inputValue;
-        return [...values, parseFloat(newFloat)];
+        return [...values, parseFloat(newFloat).toFixed(1)];
       case '-':
         return [...values, inputValue * -1];
       case OPENPAR:

@@ -51,8 +51,10 @@ describe('number inputs', () => {
   });
 
   it('creates a float after a hangling decimal point', () => {
-    expect(inputValueHandler([6, '.'], 2)).toEqual([6.2]);
-    expect(inputValueHandler([-2, '.'], 9)).toEqual([-2.9]);
+    expect(inputValueHandler([6, '.'], 2)).toEqual(['6.2']);
+    expect(inputValueHandler([-2, '.'], 9)).toEqual(['-2.9']);
+    expect(inputValueHandler([5, '.'], 0)).toEqual(['5.0']);
+    expect(inputValueHandler([5.0], 3)).toEqual(['5.03']);
   });
 });
 
