@@ -1,18 +1,8 @@
-// See test file for clarification
-const numberStringRegex = /-{0,1}\d+\.{0,1}\d*/;
-
 const isNumber = val => {
-  if (typeof val === 'number') {
-    return true;
-  }
+  const parsedVal = parseFloat(val);
 
-  const regexMatch = val.match(numberStringRegex);
-
-  if (!regexMatch || regexMatch.length !== 1) {
-    return false;
-  }
-
-  return val.match(numberStringRegex)[0] === val;
+  // The second bit screens NaN:
+  return typeof parsedVal === 'number' && parsedVal === parsedVal;
 };
 
 export default isNumber;
