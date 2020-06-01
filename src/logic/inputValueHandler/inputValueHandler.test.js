@@ -17,18 +17,42 @@ describe('number inputs', () => {
   it('concatenates new non-zero numbers into the current index', () => {
     expect(inputValueHandler([], 5)).toEqual([5]);
     expect(inputValueHandler([5], 6)).toEqual([56]);
+    expect(inputValueHandler([5.5], 6)).toEqual([5.56]);
+    expect(inputValueHandler([-5], 5)).toEqual([-55]);
+    expect(inputValueHandler([-63.2], 4)).toEqual([-63.24]);
   });
 
   it('disallows multiple initial zeroes', () => {
     expect(inputValueHandler([0], 0)).toEqual([0]);
   });
 
-  it('can push a number after an opening parenthesis', () => {
+  it('pushes a number after an operator', () => {
+    expect(inputValueHandler([5, DIVIDE], 8)).toEqual([5, DIVIDE, 8]);
+  });
+
+  it('pushes a number after an opening parenthesis', () => {
     expect(inputValueHandler([OPENPAR], 5)).toEqual([OPENPAR, 5]);
+  });
+
+  it('pushes a MULTIPLY and a number after a closing parenthesis', () => {
+    expect(inputValueHandler([OPENPAR, 4, ADD, 2, CLOSEPAR], 7)).toEqual([
+      OPENPAR,
+      4,
+      ADD,
+      2,
+      CLOSEPAR,
+      MULTIPLY,
+      7
+    ]);
   });
 
   it('coerces numbers to be negative after a negative sign', () => {
     expect(inputValueHandler([5, ADD, '-'], 2)).toEqual([5, ADD, -2]);
+  });
+
+  it('creates a float after a hangling decimal point', () => {
+    expect(inputValueHandler([6, '.'], 2)).toEqual([6.2]);
+    expect(inputValueHandler([-2, '.'], 9)).toEqual([-2.9]);
   });
 });
 
@@ -47,6 +71,52 @@ describe('operator inputs', () => {
   it('disallows multiple consecutive operators', () => {
     expect(inputValueHandler(['23', ADD], ADD)).toEqual(['23', ADD]);
     expect(inputValueHandler(['23', ADD], SUBTRACT)).toEqual(['23', SUBTRACT]);
+  });
+
+  it('disallows operators immediately after opening parentheses', () => {
+    expect(inputValueHandler([OPENPAR], MULTIPLY)).toEqual([OPENPAR]);
+  });
+
+  it('pushes operators after closing parentheses', () => {
+    expect(
+      inputValueHandler([OPENPAR, 4, ADD, 2, CLOSEPAR], SUBTRACT)
+    ).toEqual([OPENPAR, 4, ADD, 2, CLOSEPAR, SUBTRACT]);
+    expect(inputValueHandler([OPENPAR, 4, ADD, 2, CLOSEPAR], ADD)).toEqual([
+      OPENPAR,
+      4,
+      ADD,
+      2,
+      CLOSEPAR,
+      ADD
+    ]);
+    expect(
+      inputValueHandler([OPENPAR, 4, ADD, 2, CLOSEPAR], MULTIPLY)
+    ).toEqual([OPENPAR, 4, ADD, 2, CLOSEPAR, MULTIPLY]);
+    expect(inputValueHandler([OPENPAR, 4, ADD, 2, CLOSEPAR], DIVIDE)).toEqual([
+      OPENPAR,
+      4,
+      ADD,
+      2,
+      CLOSEPAR,
+      DIVIDE
+    ]);
+  });
+
+  it('disallows operators after dangling negative signs', () => {
+    expect(inputValueHandler([5, DIVIDE, '-'], MULTIPLY)).toEqual([
+      5,
+      DIVIDE,
+      '-'
+    ]);
+  });
+
+  it('deletes dangling decimals', () => {
+    expect(inputValueHandler([5, ADD, 0, '.'], DIVIDE)).toEqual([
+      5,
+      ADD,
+      0,
+      DIVIDE
+    ]);
   });
 });
 

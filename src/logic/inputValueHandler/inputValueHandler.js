@@ -191,26 +191,37 @@ export default (currentValues, inputValue) => {
   if (typeof inputValue == 'number') {
     let lastValue = values.pop() || 0;
 
+    if (typeof lastValue === 'number') {
+      // If the current last value is an integer, add incoming number as digit to that number
+      if (Number.isInteger(lastValue)) {
+        lastValue *= 10;
+        lastValue >= 0 ? (lastValue += inputValue) : (lastValue -= inputValue);
+        return [...values, lastValue];
+      }
+
+      // If float, just skip the math and concatenate
+      lastValue = lastValue.toString() + inputValue.toString();
+      return [...values, parseFloat(lastValue)];
+    }
+
     // If the current last value is an operator, put incoming number in new index
     if (isOperator(lastValue)) {
       return [...values, lastValue, inputValue];
     }
 
-    // If the current last value is a number, add incoming number as digit to that number
-    if (typeof lastValue === 'number') {
-      lastValue *= 10;
-      lastValue += inputValue;
-      return [...values, lastValue];
-    }
-
-    // If the current last value is an opening parenthesis
-    if (lastValue === OPENPAR) {
-      return [...values, lastValue, inputValue];
-    }
-
-    // If the current last value is a negative sign, coerce inputValue to be negative
-    if (lastValue === '-') {
-      return [...values, inputValue * -1];
+    switch (lastValue) {
+      case '.':
+        let precedingInteger = values.pop();
+        let newFloat = precedingInteger.toString() + '.' + inputValue;
+        return [...values, parseFloat(newFloat)];
+      case '-':
+        return [...values, inputValue * -1];
+      case OPENPAR:
+        return [...values, lastValue, inputValue];
+      case CLOSEPAR:
+        return [...values, lastValue, MULTIPLY, inputValue];
+      default:
+        return [...values, lastValue];
     }
 
     // HANDLE OPERATORS
@@ -222,9 +233,26 @@ export default (currentValues, inputValue) => {
 
     let lastValue = values.pop();
 
-    // Only add incoming operator as new index if lastValue isn't an operator
-    if (!isOperator(lastValue)) {
+    // Only add incoming operator as new index after numbers
+    if (typeof lastValue === 'number') {
       return [...values, lastValue, inputValue];
+    }
+
+    // Replace dangling operators with incoming operator
+    if (isOperator(lastValue)) {
+      return [...values, inputValue];
+    }
+
+    switch (lastValue) {
+      case '.':
+        return [...values, inputValue];
+      case OPENPAR:
+      case '-':
+        return [...values, lastValue];
+      case CLOSEPAR:
+        return [...values, lastValue, inputValue];
+      default:
+        return [...values, inputValue];
     }
   }
 
