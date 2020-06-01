@@ -35,18 +35,22 @@ export default (currentValues, inputValue) => {
 
     let lastValue = values.pop();
 
-    // If last value is an operator, return array without that operator
-    if (isOperator(lastValue)) {
-      return values;
-    }
-
     // If number, delete last digit (or whole number if single-digit)
     if (typeof lastValue == 'number') {
       lastValue /= 10;
-      return Math.floor(lastValue)
-        ? [...values, Math.floor(lastValue)]
-        : values;
+      if (lastValue >= 0) {
+        return Math.floor(lastValue)
+          ? [...values, Math.floor(lastValue)]
+          : values;
+      } else {
+        return Math.ceil(lastValue)
+          ? [...values, Math.ceil(lastValue)]
+          : values;
+      }
     }
+
+    // Default behavior
+    return values;
   }
 
   // HANDLE PARENTHESES
@@ -131,18 +135,55 @@ export default (currentValues, inputValue) => {
       return [...values, lastValue];
     }
 
-    if (lastValue === '.') {
-      lastValue = values.pop();
-      lastValue *= -1;
-      return [...values, lastValue, '.'];
-    }
-
-    if (lastValue === CLOSEPAR) {
-      return [...values, lastValue, MULTIPLY, '-'];
-    }
-
-    if (isOperator(lastValue) || lastValue == OPENPAR) {
+    if (isOperator(lastValue)) {
       return [...values, lastValue, '-'];
+    }
+
+    switch (lastValue) {
+      case '-':
+        return values;
+      case '.':
+        lastValue = values.pop();
+        lastValue *= -1;
+        return [...values, lastValue, '.'];
+      case OPENPAR:
+        return [...values, lastValue, '-'];
+      case CLOSEPAR:
+        return [...values, lastValue, MULTIPLY, '-'];
+      default:
+        return [...values, lastValue];
+    }
+  }
+
+  // HANDLE DECIMAL
+  if (inputValue === DECIMAL) {
+    if (!values.length) {
+      return [0, '.'];
+    }
+
+    let lastValue = values.pop();
+
+    if (typeof lastValue == 'number') {
+      return Number.isInteger(lastValue)
+        ? [...values, lastValue, '.']
+        : [...values, lastValue];
+    }
+
+    if (isOperator(lastValue)) {
+      return [...values, lastValue, 0, '.'];
+    }
+
+    switch (lastValue) {
+      case '.':
+        return [...values, lastValue];
+      case '-':
+        return [...values, -0, '.'];
+      case OPENPAR:
+        return [...values, lastValue, 0, '.'];
+      case CLOSEPAR:
+        return [...values, lastValue, MULTIPLY, 0, '.'];
+      default:
+        return [...values, lastValue];
     }
   }
 

@@ -68,7 +68,20 @@ describe('BACKSPACE input', () => {
 
   it('deletes entire single-digit numbers', () => {
     expect(inputValueHandler([1], BACKSPACE)).toEqual([]);
+    expect(inputValueHandler([-5], BACKSPACE)).toEqual([]);
     expect(inputValueHandler([13, ADD, 2], BACKSPACE)).toEqual([13, ADD]);
+  });
+
+  it('deletes dangling negative signs', () => {
+    expect(inputValueHandler([5, SUBTRACT, '-'], BACKSPACE)).toEqual([
+      5,
+      SUBTRACT
+    ]);
+    expect(inputValueHandler([2, MULTIPLY, OPENPAR, '-'], BACKSPACE)).toEqual([
+      2,
+      MULTIPLY,
+      OPENPAR
+    ]);
   });
 });
 
@@ -263,5 +276,58 @@ describe('NEGATIVE input', () => {
   it('pushes a negative sign after an opening par or an operator', () => {
     expect(inputValueHandler([OPENPAR], NEGATIVE)).toEqual([OPENPAR, '-']);
     expect(inputValueHandler([5, ADD], NEGATIVE)).toEqual([5, ADD, '-']);
+  });
+
+  it('cancels out dangling negative signs', () => {
+    expect(inputValueHandler([3, DIVIDE, '-'], NEGATIVE)).toEqual([3, DIVIDE]);
+  });
+});
+
+describe('DECIMAL input', () => {
+  it('pushes a zero and a decimal point to an empty array', () => {
+    expect(inputValueHandler([], DECIMAL)).toEqual([0, '.']);
+  });
+
+  it('pushes a decimal point in a new index after an integer', () => {
+    expect(inputValueHandler([5], DECIMAL)).toEqual([5, '.']);
+  });
+
+  it('does not push a decimal after a float', () => {
+    expect(inputValueHandler([5.5], DECIMAL)).toEqual([5.5]);
+  });
+
+  it('pushes a zero and a decimal point after an operator', () => {
+    expect(inputValueHandler([5.5, SUBTRACT], DECIMAL)).toEqual([
+      5.5,
+      SUBTRACT,
+      0,
+      '.'
+    ]);
+  });
+
+  it('does not push a decimal after a dangling decimal', () => {
+    expect(inputValueHandler([5, '.'], DECIMAL)).toEqual([5, '.']);
+  });
+
+  // Idk if this is best behavior. This is an edge case that produces a negative zero.
+  it('pushes a zero and a decimal point after a dangling negative', () => {
+    expect(inputValueHandler(['-'], DECIMAL)).toEqual([-0, '.']);
+  });
+
+  it('pushes a zero and a decimal point after an opening parenthesis', () => {
+    expect(inputValueHandler([OPENPAR], DECIMAL)).toEqual([OPENPAR, 0, '.']);
+  });
+
+  it('pushes a MULTIPLY, a zero, and a decimal point after a closing parenthesis', () => {
+    expect(inputValueHandler([OPENPAR, 5, ADD, 5, CLOSEPAR], DECIMAL)).toEqual([
+      OPENPAR,
+      5,
+      ADD,
+      5,
+      CLOSEPAR,
+      MULTIPLY,
+      0,
+      '.'
+    ]);
   });
 });
