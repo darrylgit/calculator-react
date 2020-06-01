@@ -22,4 +22,5 @@ it('rejects everything else', () => {
   expect(isNumber('.')).toEqual(false);
   expect(isNumber('0.1.')).toEqual(false);
   expect(isNumber('MULTIPLY')).toEqual(false);
+  expect(isNumber('--1')).toEqual(false);
 });

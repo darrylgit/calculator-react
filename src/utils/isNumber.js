@@ -1,5 +1,5 @@
 // See test file for clarification
-const numberStringRegex = /-*\d+\.{0,1}\d*/;
+const numberStringRegex = /-{0,1}\d+\.{0,1}\d*/;
 
 const isNumber = val => {
   if (typeof val === 'number') {
