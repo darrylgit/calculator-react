@@ -10,6 +10,10 @@ import {
 } from '../constants';
 
 it('returns true if closing par would be redundant', () => {
+  // These tests are somewhat misleading. By the time the values array gets to closingParWouldBeRedundant,
+  // a CLOSEPAR has already been popped off the array. For example, in this first test, the actual scenario
+  // we're testing is: In the case of [OPENPAR, OPENPAR, 5, ADD, 6, CLOSEPAR], should the calculator add another
+  // closing parenthesis immediately after the already-existing closing parenthesis? In my opinion, no.
   expect(closingParWouldBeRedundant([OPENPAR, OPENPAR, 5, ADD, 6])).toEqual(
     true
   );
