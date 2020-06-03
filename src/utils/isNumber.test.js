@@ -14,6 +14,7 @@ it('accepts strings that represent numbers', () => {
   expect(isNumber('5.00')).toEqual(true);
   expect(isNumber('-0.2')).toEqual(true);
   expect(isNumber('-234234.000')).toEqual(true);
+  expect(isNumber('5.')).toEqual(true);
 });
 
 it('rejects everything else', () => {

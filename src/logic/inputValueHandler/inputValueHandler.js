@@ -20,6 +20,70 @@ export default (currentValues, inputValue) => {
 
   let values = [...currentValues];
 
+  // HANDLE NUMBERS
+  if (isNumber(inputValue)) {
+    let lastValue = values.pop() || '';
+
+    // Disallow mutliple initial zeroes
+    if (lastValue === '0') {
+      return [...values, lastValue];
+    }
+
+    if (isNumber(lastValue) || lastValue === '') {
+      // String concatenationn
+      lastValue += inputValue;
+      return [...values, lastValue];
+    }
+
+    // If the current last value is an operator, put incoming number in new index
+    if (isOperator(lastValue)) {
+      return [...values, lastValue, inputValue];
+    }
+
+    switch (lastValue) {
+      case '-':
+        return [...values, lastValue + inputValue];
+      case OPENPAR:
+        return [...values, lastValue, inputValue];
+      case CLOSEPAR:
+        return [...values, lastValue, MULTIPLY, inputValue];
+      default:
+        return [...values, lastValue];
+    }
+  }
+
+  // HANDLE OPERATORS
+  if (isOperator(inputValue)) {
+    // Disallow initial operators:
+    if (!values.length) {
+      return values;
+    }
+
+    let lastValue = values.pop();
+
+    // Only add incoming operator as new index after numbers
+    // The parseFloat bit gets rid of dangling decimals
+    if (isNumber(lastValue)) {
+      lastValue = parseFloat(lastValue).toString();
+      return [...values, lastValue, inputValue];
+    }
+
+    // Replace dangling operators with incoming operator
+    if (isOperator(lastValue)) {
+      return [...values, inputValue];
+    }
+
+    switch (lastValue) {
+      case OPENPAR:
+      case '-':
+        return [...values, lastValue];
+      case CLOSEPAR:
+        return [...values, lastValue, inputValue];
+      default:
+        return [...values, inputValue];
+    }
+  }
+
   // HANDLE CLEAR
   if (inputValue === CLEAR) {
     return [];
@@ -35,25 +99,9 @@ export default (currentValues, inputValue) => {
 
     // If number, delete last digit (or whole number if single-digit)
     if (isNumber(lastValue)) {
-      if (Number.isInteger(lastValue)) {
-        lastValue /= 10;
-        if (lastValue >= 0) {
-          return Math.floor(lastValue)
-            ? [...values, Math.floor(lastValue)]
-            : values;
-        } else {
-          return Math.ceil(lastValue)
-            ? [...values, Math.ceil(lastValue)]
-            : values;
-        }
-      }
+      let truncatedNumber = lastValue.slice(0, -1);
 
-      // Floats
-      lastValue = lastValue.slice(0, -1);
-      let truncatedNumber =
-        lastValue.slice(-1) === '.' ? parseInt(lastValue) : lastValue;
-
-      return [...values, truncatedNumber];
+      return truncatedNumber ? [...values, truncatedNumber] : [...values];
     }
 
     //Edge case: deletes hidden MULTIPLYs
@@ -91,12 +139,12 @@ export default (currentValues, inputValue) => {
     let lastValue = values.pop();
 
     // If last value is a hanging decimal, ditch the decimal
-    if (lastValue === '.') {
-      lastValue = values.pop();
+    if (lastValue.slice(-1) === '.') {
+      lastValue = lastValue.slice(0, -1);
     }
 
     // If last value is a number
-    if (typeof lastValue == 'number') {
+    if (isNumber(lastValue)) {
       // Multiply and start new block of parentheses if no parentheses are unclosed
       if (!unclosedPars) {
         return [...values, lastValue, MULTIPLY, OPENPAR];
@@ -113,7 +161,7 @@ export default (currentValues, inputValue) => {
 
     // If the last value is a hanging negative, coerce to -1, multiply, open new parentheses
     if (lastValue === '-') {
-      lastValue = -1;
+      lastValue = '-1';
       return [...values, lastValue, MULTIPLY, OPENPAR];
     }
 
@@ -146,8 +194,8 @@ export default (currentValues, inputValue) => {
 
     let lastValue = values.pop();
 
-    if (typeof lastValue === 'number') {
-      lastValue *= -1;
+    if (isNumber(lastValue)) {
+      lastValue = lastValue[0] === '-' ? lastValue.slice(1) : '-' + lastValue;
       return [...values, lastValue];
     }
 
@@ -158,10 +206,6 @@ export default (currentValues, inputValue) => {
     switch (lastValue) {
       case '-':
         return values;
-      case '.':
-        lastValue = values.pop();
-        lastValue *= -1;
-        return [...values, lastValue, '.'];
       case OPENPAR:
         return [...values, lastValue, '-'];
       case CLOSEPAR:
@@ -174,101 +218,30 @@ export default (currentValues, inputValue) => {
   // HANDLE DECIMAL
   if (inputValue === DECIMAL) {
     if (!values.length) {
-      return [0, '.'];
+      return ['0.'];
     }
 
     let lastValue = values.pop();
 
-    if (typeof lastValue == 'number') {
-      return Number.isInteger(lastValue)
-        ? [...values, lastValue, '.']
-        : [...values, lastValue];
+    if (isNumber(lastValue)) {
+      return lastValue.includes('.')
+        ? [...values, lastValue]
+        : [...values, lastValue + '.'];
     }
 
     if (isOperator(lastValue)) {
-      return [...values, lastValue, 0, '.'];
+      return [...values, lastValue, '0.'];
     }
 
     switch (lastValue) {
-      case '.':
-        return [...values, lastValue];
       case '-':
-        return [...values, -0, '.'];
+        return [...values, '-0.'];
       case OPENPAR:
-        return [...values, lastValue, 0, '.'];
+        return [...values, lastValue, '0.'];
       case CLOSEPAR:
-        return [...values, lastValue, MULTIPLY, 0, '.'];
+        return [...values, lastValue, MULTIPLY, '0.'];
       default:
         return [...values, lastValue];
-    }
-  }
-
-  // HANDLE NUMBERS
-  if (typeof inputValue == 'number') {
-    let lastValue = values.pop() || 0;
-
-    if (typeof lastValue === 'number') {
-      // If the current last value is an integer, add incoming number as digit to that number
-      if (Number.isInteger(lastValue)) {
-        lastValue *= 10;
-        lastValue >= 0 ? (lastValue += inputValue) : (lastValue -= inputValue);
-        return [...values, lastValue];
-      }
-
-      // If float, just skip the math and concatenate
-      lastValue = lastValue.toString() + inputValue.toString();
-      return [...values, parseFloat(lastValue)];
-    }
-
-    // If the current last value is an operator, put incoming number in new index
-    if (isOperator(lastValue)) {
-      return [...values, lastValue, inputValue];
-    }
-
-    switch (lastValue) {
-      case '.':
-        let precedingInteger = values.pop();
-        let newFloat = precedingInteger.toString() + '.' + inputValue;
-        return [...values, parseFloat(newFloat).toFixed(1)];
-      case '-':
-        return [...values, inputValue * -1];
-      case OPENPAR:
-        return [...values, lastValue, inputValue];
-      case CLOSEPAR:
-        return [...values, lastValue, MULTIPLY, inputValue];
-      default:
-        return [...values, lastValue];
-    }
-
-    // HANDLE OPERATORS
-  } else if (isOperator(inputValue)) {
-    // Disallow initial operators:
-    if (!values.length) {
-      return values;
-    }
-
-    let lastValue = values.pop();
-
-    // Only add incoming operator as new index after numbers
-    if (typeof lastValue === 'number') {
-      return [...values, lastValue, inputValue];
-    }
-
-    // Replace dangling operators with incoming operator
-    if (isOperator(lastValue)) {
-      return [...values, inputValue];
-    }
-
-    switch (lastValue) {
-      case '.':
-        return [...values, inputValue];
-      case OPENPAR:
-      case '-':
-        return [...values, lastValue];
-      case CLOSEPAR:
-        return [...values, lastValue, inputValue];
-      default:
-        return [...values, inputValue];
     }
   }
 

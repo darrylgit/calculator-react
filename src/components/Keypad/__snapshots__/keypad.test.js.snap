@@ -6,20 +6,20 @@ exports[`render keypad renders without crashing 1`] = `
   <InputKey value=\\"BACKSPACE\\" label={{...}} type=\\"util\\" />
   <InputKey value=\\"PARENTHESES\\" label=\\"( )\\" type=\\"util\\" />
   <InputKey value=\\" ÷ \\" label=\\" ÷ \\" type=\\"operator\\" />
-  <InputKey value={7} label=\\"7\\" type=\\"num\\" />
-  <InputKey value={8} label=\\"8\\" type=\\"num\\" />
-  <InputKey value={9} label=\\"9\\" type=\\"num\\" />
+  <InputKey value=\\"7\\" label=\\"7\\" type=\\"num\\" />
+  <InputKey value=\\"8\\" label=\\"8\\" type=\\"num\\" />
+  <InputKey value=\\"9\\" label=\\"9\\" type=\\"num\\" />
   <InputKey value=\\" × \\" label=\\" × \\" type=\\"operator\\" />
-  <InputKey value={4} label=\\"4\\" type=\\"num\\" />
-  <InputKey value={5} label=\\"5\\" type=\\"num\\" />
-  <InputKey value={6} label=\\"6\\" type=\\"num\\" />
+  <InputKey value=\\"4\\" label=\\"4\\" type=\\"num\\" />
+  <InputKey value=\\"5\\" label=\\"5\\" type=\\"num\\" />
+  <InputKey value=\\"6\\" label=\\"6\\" type=\\"num\\" />
   <InputKey value=\\" − \\" label=\\" − \\" type=\\"operator\\" />
-  <InputKey value={1} label=\\"1\\" type=\\"num\\" />
-  <InputKey value={2} label=\\"2\\" type=\\"num\\" />
-  <InputKey value={3} label=\\"3\\" type=\\"num\\" />
+  <InputKey value=\\"1\\" label=\\"1\\" type=\\"num\\" />
+  <InputKey value=\\"2\\" label=\\"2\\" type=\\"num\\" />
+  <InputKey value=\\"3\\" label=\\"3\\" type=\\"num\\" />
   <InputKey value=\\" + \\" label=\\" + \\" type=\\"operator\\" />
   <InputKey value=\\"NEGATIVE\\" label={{...}} type=\\"util\\" />
-  <InputKey value={0} label=\\"0\\" type=\\"num\\" />
+  <InputKey value=\\"0\\" label=\\"0\\" type=\\"num\\" />
   <InputKey value=\\"DECIMAL\\" label=\\".\\" type=\\"util\\" />
   <InputKey value=\\"EQUALS\\" label=\\"=\\" type=\\"equals\\" />
 </styled.div>"
