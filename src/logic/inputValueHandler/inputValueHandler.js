@@ -46,6 +46,6 @@ export default (currentValues, inputValue) => {
     case DECIMAL:
       return decimalHandler(values);
     default:
-      [...values, inputValue];
+      return [...values, inputValue];
   }
 };
