@@ -17,9 +17,9 @@ describe('number inputs', () => {
   it('concatenates new non-zero numbers into the current index', () => {
     expect(inputValueHandler([], 5)).toEqual([5]);
     expect(inputValueHandler([5], 6)).toEqual([56]);
-    expect(inputValueHandler([5.5], 6)).toEqual([5.56]);
+    expect(inputValueHandler(['5.5'], 6)).toEqual([5.56]);
     expect(inputValueHandler([-5], 5)).toEqual([-55]);
-    expect(inputValueHandler([-63.2], 4)).toEqual([-63.24]);
+    expect(inputValueHandler(['-63.2'], 4)).toEqual([-63.24]);
   });
 
   it('disallows multiple initial zeroes', () => {
@@ -136,13 +136,13 @@ describe('BACKSPACE input', () => {
   it('deletes digits', () => {
     expect(inputValueHandler([12], BACKSPACE)).toEqual([1]);
     expect(inputValueHandler([13, ADD, 23], BACKSPACE)).toEqual([13, ADD, 2]);
-    expect(inputValueHandler([13, ADD, 23.34], BACKSPACE)).toEqual([
+    expect(inputValueHandler([13, ADD, '23.34'], BACKSPACE)).toEqual([
       13,
       ADD,
-      23.3
+      '23.3'
     ]);
     // Idk if this is best behavior, might change later
-    expect(inputValueHandler([2.3], BACKSPACE)).toEqual([2]);
+    expect(inputValueHandler(['2.3'], BACKSPACE)).toEqual([2]);
   });
 
   it('deletes entire single-digit numbers', () => {

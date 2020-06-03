@@ -10,6 +10,7 @@ import {
 } from '../../constants';
 
 import isOperator from '../../utils/isOperator';
+import isNumber from '../../utils/isNumber';
 import closingParWouldBeRedundant from '../../utils/closingParWouldBeRedundant';
 
 export default (currentValues, inputValue) => {
@@ -33,7 +34,7 @@ export default (currentValues, inputValue) => {
     let lastValue = values.pop();
 
     // If number, delete last digit (or whole number if single-digit)
-    if (typeof lastValue == 'number') {
+    if (isNumber(lastValue)) {
       if (Number.isInteger(lastValue)) {
         lastValue /= 10;
         if (lastValue >= 0) {
@@ -48,11 +49,9 @@ export default (currentValues, inputValue) => {
       }
 
       // Floats
-      lastValue = lastValue.toString().slice(0, -1);
+      lastValue = lastValue.slice(0, -1);
       let truncatedNumber =
-        lastValue.slice(-1) === '.'
-          ? parseInt(lastValue)
-          : parseFloat(lastValue);
+        lastValue.slice(-1) === '.' ? parseInt(lastValue) : lastValue;
 
       return [...values, truncatedNumber];
     }
