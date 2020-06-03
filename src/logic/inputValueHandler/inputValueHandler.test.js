@@ -425,7 +425,6 @@ describe('DECIMAL input', () => {
     expect(inputValueHandler(['5.'], DECIMAL)).toEqual(['5.']);
   });
 
-  // Idk if this is best behavior. This is an edge case that produces a negative zero.
   it('pushes a zero and a decimal point after a dangling negative', () => {
     expect(inputValueHandler(['-'], DECIMAL)).toEqual(['-0.']);
   });
