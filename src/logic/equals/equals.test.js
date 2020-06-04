@@ -34,3 +34,50 @@ it('handles negatives', () => {
   expect(equals(['-3', SUBTRACT, '3'])).toEqual(['-6']);
   expect(equals(['25', DIVIDE, '-5'])).toEqual(['-5']);
 });
+
+it('handles parentheses', () => {
+  expect(equals([OPENPAR, '5', ADD, '1', CLOSEPAR, MULTIPLY, '7'])).toEqual([
+    '42'
+  ]);
+  expect(
+    equals(['12', DIVIDE, OPENPAR, '6', SUBTRACT, '3', CLOSEPAR])
+  ).toEqual(['4']);
+});
+
+it('handles nested parentheses', () => {
+  expect(
+    equals([
+      OPENPAR,
+      OPENPAR,
+      '5',
+      MULTIPLY,
+      '3',
+      CLOSEPAR,
+      ADD,
+      '2',
+      CLOSEPAR,
+      DIVIDE,
+      '2'
+    ])
+  ).toEqual(['8.5']);
+
+  expect(
+    equals([
+      '5',
+      MULTIPLY,
+      OPENPAR,
+      '-1',
+      ADD,
+      OPENPAR,
+      '5',
+      MULTIPLY,
+      '5',
+      CLOSEPAR,
+      SUBTRACT,
+      '3',
+      CLOSEPAR,
+      DIVIDE,
+      '7'
+    ])
+  ).toEqual(['15']);
+});
