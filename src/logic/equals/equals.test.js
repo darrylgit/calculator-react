@@ -81,3 +81,13 @@ it('handles nested parentheses', () => {
     ])
   ).toEqual(['15']);
 });
+
+it("doesn't calculate expressions with mismatched parentheses", () => {
+  expect(equals([OPENPAR, '3', ADD, '2'])).toEqual([OPENPAR, '3', ADD, '2']);
+  expect(equals(['8', SUBTRACT, '3', OPENPAR])).toEqual([
+    '8',
+    SUBTRACT,
+    '3',
+    OPENPAR
+  ]);
+});
