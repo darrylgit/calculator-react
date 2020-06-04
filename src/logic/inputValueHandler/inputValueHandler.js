@@ -3,7 +3,8 @@ import {
   BACKSPACE,
   PARENTHESES,
   DECIMAL,
-  NEGATIVE
+  NEGATIVE,
+  EQUALS
 } from '../../constants';
 
 import isOperator from '../../utils/isOperator';
@@ -15,6 +16,7 @@ import backspaceHandler from './inputValueHandler.backspace';
 import parenthesesHandler from './inputValueHandler.parentheses';
 import negativeHandler from './inputValueHandler.negative';
 import decimalHandler from './inputValueHandler.decimal';
+import equals from '../equals/equals';
 
 export default (currentValues, inputValue) => {
   if (inputValue === undefined) {
@@ -45,6 +47,8 @@ export default (currentValues, inputValue) => {
       return negativeHandler(values);
     case DECIMAL:
       return decimalHandler(values);
+    case EQUALS:
+      return equals(values);
     default:
       return [...values, inputValue];
   }

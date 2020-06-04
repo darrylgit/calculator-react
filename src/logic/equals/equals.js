@@ -10,16 +10,23 @@ import {
 } from '../../constants';
 
 const equals = values => {
+  // If parentheses exist, handle them first
   while (values.includes(CLOSEPAR)) {
+    // The first closing parenthesis we encounter corresponds to the innnermost layer of parentheses
     const indexOfFirstClosePar = values.indexOf(CLOSEPAR);
+
+    // That matching opening parenthesis is simply the last opening parenthesis that comes
+    // before that closing parenthesis
     const indexOfMatchingOpenPar = values
       .slice(0, indexOfFirstClosePar)
       .lastIndexOf(OPENPAR);
 
+    // Do whatever arithmetic needs to be done between those parentheses
     const evaluatedBlock = doArithmetic(
-      values.slice(indexOfMatchingOpenPar, indexOfFirstClosePar)
+      values.slice(indexOfMatchingOpenPar + 1, indexOfFirstClosePar)
     );
 
+    // Replace that parentheses block with that calculated value
     values = [
       ...values.slice(0, indexOfMatchingOpenPar),
       evaluatedBlock,
@@ -48,7 +55,7 @@ const doArithmetic = arr => {
     });
   }
 
-  return arr.filter(el => el !== OPENPAR && el !== CLOSEPAR);
+  return arr;
 };
 
 export default equals;
