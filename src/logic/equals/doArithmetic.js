@@ -1,4 +1,5 @@
-import { ADD, SUBTRACT, MULTIPLY, DIVIDE } from '../constants';
+import { MULTIPLY, DIVIDE, ADD, SUBTRACT } from '../../constants';
+import isOperator from '../../utils/isOperator';
 
 const operations = {
   mainOperations: {
@@ -46,4 +47,25 @@ const operations = {
   }
 };
 
-export default operations;
+const doArithmetic = arr => {
+  // The while loop is necessary because the operation changes the length of the array and messes with the forEach loop
+  while (arr.includes(MULTIPLY) || arr.includes(DIVIDE)) {
+    arr.forEach((val, i) => {
+      if (isOperator(val)) {
+        operations.multiplyAndDivide(arr, i);
+      }
+    });
+  }
+
+  while (arr.includes(ADD) || arr.includes(SUBTRACT)) {
+    arr.forEach((val, i) => {
+      if (isOperator(val)) {
+        operations.addAndSubtract(arr, i);
+      }
+    });
+  }
+
+  return arr;
+};
+
+export default doArithmetic;

@@ -1,5 +1,5 @@
-import isOperator from './isOperator';
-import isNumber from './isNumber';
+import isOperator from '../../utils/isOperator';
+import isNumber from '../../utils/isNumber';
 import {
   MULTIPLY,
   DIVIDE,
@@ -7,9 +7,9 @@ import {
   ADD,
   OPENPAR,
   CLOSEPAR
-} from '../constants';
+} from '../../constants';
 
-import unclosedPars from '../utils/unclosedPars';
+import unclosedPars from '../../utils/unclosedPars';
 
 // If the user calculates the input, we need to determine the "terminal
 // calculation" of that input. Having done so, should the user press '=' again

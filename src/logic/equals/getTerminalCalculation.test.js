@@ -6,7 +6,7 @@ import {
   MULTIPLY,
   OPENPAR,
   DIVIDE
-} from '../constants';
+} from '../../constants';
 
 it('handles simple cases with no parentheses', () => {
   expect(getTerminalCalculation(['5', ADD, '5'])).toEqual([ADD, '5']);
@@ -31,6 +31,8 @@ it('handles parentheses', () => {
 
   expect(
     getTerminalCalculation([
+      '3',
+      DIVIDE,
       '52',
       SUBTRACT,
       OPENPAR,
