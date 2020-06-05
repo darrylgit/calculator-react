@@ -101,3 +101,7 @@ it("doesn't calculate expressions with mismatched parentheses", () => {
     OPENPAR
   ]);
 });
+
+it('drops dangling operators', () => {
+  expect(equals(['5', ADD, '6', DIVIDE])).toEqual(['11', [ADD, '6']]);
+});

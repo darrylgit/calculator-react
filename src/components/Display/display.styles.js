@@ -14,10 +14,15 @@ export const DisplayContainer = styled.div`
 
     padding-right: 1rem;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 
     .main {
       font-size: 5rem;
+    }
+
+    .preview {
+      font-size: 2.5rem;
     }
   }
 `;

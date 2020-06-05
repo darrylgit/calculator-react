@@ -9,6 +9,7 @@ import {
 
 import isOperator from '../../utils/isOperator';
 import isNumber from '../../utils/isNumber';
+import hasTerminalCalculation from '../../utils/hasTerminalCalculation';
 
 import numberHandler from './inputValueHandler.number';
 import operatorHandler from './inputValueHandler.operator';
@@ -26,15 +27,10 @@ export default (currentValues, inputValue) => {
   // Handle equals
   if (inputValue === EQUALS) {
     // Check for terminal calculation
-    if (
-      currentValues.length == 2 &&
-      !Array.isArray(currentValues[0]) &&
-      Array.isArray(currentValues[1])
-    ) {
+    if (hasTerminalCalculation(currentValues)) {
       currentValues = [currentValues[0], ...currentValues[1]];
     }
 
-    console.log(currentValues);
     return equals(currentValues);
   }
 

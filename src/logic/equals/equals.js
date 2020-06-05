@@ -1,13 +1,19 @@
 import { OPENPAR, CLOSEPAR } from '../../constants';
 
 import doArithmetic from './doArithmetic';
+import isOperator from '../../utils/isOperator';
 import getTerminalCalculation from './getTerminalCalculation';
 import unclosedPars from '../../utils/unclosedPars';
 
 const equals = values => {
-  //return early if there are unclosed parentheses
+  //return early if there are unclosed parentheses or last value is an operator
   if (unclosedPars(values)) {
     return values;
+  }
+
+  // Drop dangling operator
+  if (isOperator(...values.slice(-1))) {
+    values = values.slice(0, -1);
   }
 
   // Before handling anything else, get terminal calculation. Refer to getTerminalCalculation.test.js for examples
@@ -39,7 +45,9 @@ const equals = values => {
 
   // Return both the caluclated value (index 0) and the terminal calculation.
   // Refer to getTerminalCalculation.js and its spec file for examples / explanations
-  return [...doArithmetic(values), terminalCalculation];
+  return terminalCalculation
+    ? [...doArithmetic(values), terminalCalculation]
+    : doArithmetic(values);
 };
 
 export default equals;

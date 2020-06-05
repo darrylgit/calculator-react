@@ -6,7 +6,7 @@ exports[`renders without crashing 1`] = `
     <div className=\\"sc-AxgMl fWFYAo\\">
       <Display>
         <styled.div>
-          <div className=\\"sc-AxjAm ePhIG\\">
+          <div className=\\"sc-AxjAm bAXCOO\\">
             <div className=\\"outputs\\">
               <div className=\\"preview\\" />
               <div className=\\"main\\">
