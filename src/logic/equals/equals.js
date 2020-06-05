@@ -1,5 +1,6 @@
 import operations from '../../utils/operations';
 import isOperator from '../../utils/isOperator';
+import isNumber from '../../utils/isNumber';
 import {
   MULTIPLY,
   DIVIDE,
@@ -9,7 +10,14 @@ import {
   CLOSEPAR
 } from '../../constants';
 
+import unclosedPars from '../../utils/unclosedPars';
+
 const equals = values => {
+  //return early if there are unclosed parentheses
+  if (unclosedPars(values)) {
+    return values;
+  }
+
   // If parentheses exist, handle them first
   while (values.includes(CLOSEPAR)) {
     // The first closing parenthesis we encounter corresponds to the innnermost layer of parentheses
@@ -56,6 +64,55 @@ const doArithmetic = arr => {
   }
 
   return arr;
+};
+
+/*
+      If the user calculates the input, we need to determine the "terminal
+      calculation" of that input. Having done so, should the user press '=' again
+      immediately after performing a calculation, the calculator will display the
+      previously calculated value evaluated by this terminal calculation. For
+      example:
+
+      '100 - 2 + 6'   ------> terminal calcuation is '+ 6'
+      '='             ------> output is 104
+      '='             ------> output is 110
+      '='             ------> output is 116
+      etc.
+
+      */
+const getTerminalCalculation = values => {
+  /* "normal" case with no parentheses involved. The last two indices are
+        returned */
+  if (isNumber(values.slice(-1)[0])) {
+    terminalCalculation = values.slice(-2);
+
+    //otherwise, if a closing parenthesis is involved:
+  } else if (values.slice(-1)[0] === CLOSEPAR) {
+    // There might be layers of nested parentheses between this closing parenthesis and its
+    // matching opening parenthesis, so we have to get clever
+
+    (function findCorrespondingOpenPar() {
+      for (i = values.length - 2; i > -1; i--) {
+        if (values[i] === ' )') {
+          localParCount--;
+        } else if (values[i] === '( ') {
+          localParCount++;
+        }
+
+        if (localParCount > 0) {
+          start = i;
+          console.log(start);
+          return true;
+        }
+      }
+    })();
+
+    if (/&/.test(values[start - 1])) {
+      terminalCalculation = values.slice(start - 1);
+    } else {
+      terminalCalculation = [];
+    }
+  }
 };
 
 export default equals;
