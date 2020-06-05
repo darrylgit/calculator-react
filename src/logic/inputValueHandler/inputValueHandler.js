@@ -23,7 +23,23 @@ export default (currentValues, inputValue) => {
     console.error('ERR: No input value specified');
   }
 
-  let values = [...currentValues];
+  // Handle equals
+  if (inputValue === EQUALS) {
+    // Check for terminal calculation
+    if (
+      currentValues.length == 2 &&
+      !Array.isArray(currentValues[0]) &&
+      Array.isArray(currentValues[1])
+    ) {
+      currentValues = [currentValues[0], ...currentValues[1]];
+    }
+
+    console.log(currentValues);
+    return equals(currentValues);
+  }
+
+  // If user starts new calculation, remove the current terminal calculation (an array) if there is one
+  let values = [...currentValues].filter(el => !Array.isArray(el));
 
   // Handle numbers
   if (isNumber(inputValue)) {
@@ -47,8 +63,6 @@ export default (currentValues, inputValue) => {
       return negativeHandler(values);
     case DECIMAL:
       return decimalHandler(values);
-    case EQUALS:
-      return equals(values);
     default:
       return [...values, inputValue];
   }

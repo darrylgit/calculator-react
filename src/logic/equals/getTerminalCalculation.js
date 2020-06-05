@@ -1,14 +1,6 @@
 import isOperator from '../../utils/isOperator';
 import isNumber from '../../utils/isNumber';
-import {
-  MULTIPLY,
-  DIVIDE,
-  SUBTRACT,
-  ADD,
-  OPENPAR,
-  CLOSEPAR
-} from '../../constants';
-
+import { CLOSEPAR } from '../../constants';
 import unclosedPars from '../../utils/unclosedPars';
 
 // If the user calculates the input, we need to determine the "terminal

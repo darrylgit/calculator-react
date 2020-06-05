@@ -37,6 +37,8 @@ const equals = values => {
     ];
   }
 
+  // Return both the caluclated value (index 0) and the terminal calculation.
+  // Refer to getTerminalCalculation.js and its spec file for examples / explanations
   return [...doArithmetic(values), terminalCalculation];
 };
 
