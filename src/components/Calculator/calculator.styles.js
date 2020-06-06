@@ -23,7 +23,7 @@ export const CalculatorContainer = styled.div`
   }
 
   // Mobile landscape mode
-  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) {
+  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) and (max-height: 40em) {
     width: 100vw;
     border-radius: 0;
   }

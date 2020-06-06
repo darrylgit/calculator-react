@@ -150,7 +150,7 @@ export const KeyOuter = styled.div`
   position: relative;
 
   // Mobile landscape mode
-  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) {
+  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) and (max-height: 40em) {
     padding-top: 5rem;
   }
 `;
@@ -173,7 +173,7 @@ export const KeyInner = styled.div`
 
   ${getKeyStyles}
 
-  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) {
+  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) and (max-height: 40em) {
     border-radius: 1rem;
   }
 `;
@@ -182,7 +182,7 @@ export const KeyWrapper = styled.div`
   min-width: 21%;
 
   // Mobile landscape mode
-  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) {
+  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) and (max-height: 40em) {
     order: ${mobileLandscapeOrder};
     min-width: 17%;
   }
