@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { DisplayContainer } from './display.styles';
 import CalcContext from '../../contexts/calcContext';
@@ -19,7 +19,7 @@ const displayParser = arr => {
     .join('');
 };
 
-const displayPreview = arr => {
+const displaySub = arr => {
   if (!hasTerminalCalculation(arr) && arr.length > 1) {
     return displayParser(arr);
   }
@@ -28,32 +28,50 @@ const displayPreview = arr => {
 };
 
 const displayMain = arr => {
-  if (hasTerminalCalculation(arr) || arr.length === 1) {
+  // If the user has just hit equals, return early and just display the calculated value
+  if (hasTerminalCalculation(arr) || arr.length <= 1) {
     return displayParser(arr);
   }
 
   // Truncate incoming array by 1 element
   const arrForMain = arr.slice(0, -1);
 
-  // Make sure new array is fit for calucation
-  if (
+  return displayParser(equals(arrForMain));
+};
+
+const canCalculate = arr => {
+  if (!arr.length) {
+    return true;
+  }
+
+  // If the user has just hit equals or just begun a calculation, return early and just display the calculated value
+  if (hasTerminalCalculation(arr) || arr.length === 1) {
+    return true;
+  }
+
+  // Truncate incoming array by 1 element
+  const arrForMain = arr.slice(0, -1);
+
+  return (
     arrForMain.length &&
     !unclosedPars(arrForMain) &&
     !isOperator(arrForMain.slice(-1))
-  ) {
-    return displayParser(equals(arr.slice(0, -1)));
-  } else {
-    return arrForMain || '';
-  }
+  );
 };
 
 const Display = () => {
   const { values } = useContext(CalcContext);
+  const [calculatedValue, runCalculation] = useState('');
+
+  if (canCalculate(values) && displayMain(values) !== calculatedValue) {
+    runCalculation(displayMain(values));
+  }
+
   return (
     <DisplayContainer>
       <div className='outputs'>
-        <div className='preview'>{displayPreview(values)}</div>
-        <div className='main'>{displayMain(values)}</div>
+        <div className='sub'>{displaySub(values)}</div>
+        <div className='main'>{calculatedValue}</div>
       </div>
     </DisplayContainer>
   );

@@ -21,7 +21,7 @@ export const DisplayContainer = styled.div`
       font-size: 5rem;
     }
 
-    .preview {
+    .sub {
       font-size: 2.5rem;
     }
   }

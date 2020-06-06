@@ -6,12 +6,10 @@ exports[`renders without crashing 1`] = `
     <div className=\\"sc-AxgMl fWFYAo\\">
       <Display>
         <styled.div>
-          <div className=\\"sc-AxjAm bAXCOO\\">
+          <div className=\\"sc-AxjAm cnSCfp\\">
             <div className=\\"outputs\\">
-              <div className=\\"preview\\" />
-              <div className=\\"main\\">
-                 
-              </div>
+              <div className=\\"sub\\" />
+              <div className=\\"main\\" />
             </div>
           </div>
         </styled.div>
