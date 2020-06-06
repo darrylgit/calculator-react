@@ -1,6 +1,6 @@
 const trimValue = val => {
-  // Cut down to 9 significant figures
-  const calculatedValue = parseFloat(val[0]).toPrecision(9).toString();
+  // Cut down to 8 significant figures
+  const calculatedValue = parseFloat(val[0]).toPrecision(8).toString();
 
   // Trim off trailing zeroes
   let trimmedValue = parseFloat(calculatedValue);

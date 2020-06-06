@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CalculatorContainer = styled.div`
-  width: 360px;
-  height: 640px;
+  width: 36rem;
+  height: 64rem;
   border: 2px solid #6fa7c6;
   background-color: white;
   border-radius: 20px;
@@ -13,4 +13,17 @@ export const CalculatorContainer = styled.div`
   @include background-size(cover);
   background-repeat: no-repeat;
   padding-bottom: 0.5rem;
+
+  @media only screen and (max-width: 22.5em) {
+    width: 100vw;
+
+    @media only screen and (max-height: 40em) {
+      height: 100vh;
+      border-radius: 0;
+    }
+  }
+
+  @media only screen and (max-height: 40em) {
+    height: 100vh;
+  }
 `;

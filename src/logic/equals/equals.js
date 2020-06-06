@@ -44,6 +44,7 @@ const equals = values => {
     ];
   }
 
+  // After parentheses have been handled:
   const finalCalculatedValue = trimValue(doArithmetic(values));
 
   // Return both the caluclated value (index 0) and the terminal calculation (index 1)

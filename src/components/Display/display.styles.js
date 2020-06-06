@@ -19,10 +19,18 @@ export const DisplayContainer = styled.div`
 
     .main {
       font-size: 5rem;
+      text-align: right;
     }
 
     .sub {
       font-size: 2.5rem;
+      text-align: right;
+    }
+
+    @media only screen and (max-width: 20em) {
+      .main {
+        font-size: 4.5rem;
+      }
     }
   }
 `;
