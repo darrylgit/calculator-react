@@ -49,7 +49,13 @@ const equals = values => {
     .toString();
 
   // Some mumbo-jumbo to trim off trailing zeroes
-  const trimmedValue = parseFloat(calculatedValue).toString();
+  let trimmedValue = parseFloat(calculatedValue);
+
+  if (trimmedValue >= 1000000000) {
+    trimmedValue = trimmedValue.toExponential();
+  } else {
+    trimmedValue = trimmedValue.toString();
+  }
 
   // Return both the caluclated value (index 0) and the terminal calculation (index 1)
   // Refer to getTerminalCalculation.js and its spec file for examples / explanations
