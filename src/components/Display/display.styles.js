@@ -33,4 +33,10 @@ export const DisplayContainer = styled.div`
       }
     }
   }
+
+  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) {
+    background-image: linear-gradient(to left top, #35aaff 50%, #9ad2fb);
+    padding-bottom: 0.5rem;
+    height: 27%;
+  }
 `;

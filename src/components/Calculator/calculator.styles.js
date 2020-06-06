@@ -9,8 +9,6 @@ export const CalculatorContainer = styled.div`
   padding: 0;
   -webkit-transform: scale(1);
   overflow: hidden;
-  background-image: url(../css/background.jpg);
-  @include background-size(cover);
   background-repeat: no-repeat;
   padding-bottom: 0.5rem;
 
@@ -22,5 +20,11 @@ export const CalculatorContainer = styled.div`
 
   @media only screen and (max-height: 40em) {
     height: 100vh;
+  }
+
+  // Mobile landscape mode
+  @media screen and (min-device-aspect-ratio: 1/1) and (orientation: landscape) and (hover: none) {
+    width: 100vw;
+    border-radius: 0;
   }
 `;
