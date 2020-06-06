@@ -14,13 +14,10 @@ export const CalculatorContainer = styled.div`
   background-repeat: no-repeat;
   padding-bottom: 0.5rem;
 
-  @media only screen and (max-width: 22.5em) {
+  @media only screen and (max-width: 26.55em) {
     width: 100vw;
-
-    @media only screen and (max-height: 40em) {
-      height: 100vh;
-      border-radius: 0;
-    }
+    height: 100vh;
+    border-radius: 0;
   }
 
   @media only screen and (max-height: 40em) {

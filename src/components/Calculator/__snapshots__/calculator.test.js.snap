@@ -3,10 +3,10 @@
 exports[`renders without crashing 1`] = `
 "<Calculator>
   <styled.div>
-    <div className=\\"sc-AxgMl fWFYAo\\">
+    <div className=\\"sc-AxgMl dCRwdI\\">
       <Display>
         <styled.div>
-          <div className=\\"sc-AxjAm cnSCfp\\">
+          <div className=\\"sc-AxjAm cPPQhu\\">
             <div className=\\"outputs\\">
               <div className=\\"sub\\" />
               <div className=\\"main\\" />
