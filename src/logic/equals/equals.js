@@ -1,12 +1,13 @@
 import { OPENPAR, CLOSEPAR } from '../../constants';
 
 import doArithmetic from './doArithmetic';
+import trimValue from './trimValue.js';
 import isOperator from '../../utils/isOperator';
 import getTerminalCalculation from './getTerminalCalculation';
 import unclosedPars from '../../utils/unclosedPars';
 
 const equals = values => {
-  //return early if there are unclosed parentheses or last value is an operator
+  //return early if there are unclosed parentheses
   if (unclosedPars(values)) {
     return values;
   }
@@ -43,25 +44,13 @@ const equals = values => {
     ];
   }
 
-  // Trim to 9 decimal places
-  const calculatedValue = parseFloat(doArithmetic(values)[0])
-    .toPrecision(9)
-    .toString();
-
-  // Some mumbo-jumbo to trim off trailing zeroes
-  let trimmedValue = parseFloat(calculatedValue);
-
-  if (trimmedValue >= 1000000000) {
-    trimmedValue = trimmedValue.toExponential();
-  } else {
-    trimmedValue = trimmedValue.toString();
-  }
+  const finalCalculatedValue = trimValue(doArithmetic(values));
 
   // Return both the caluclated value (index 0) and the terminal calculation (index 1)
   // Refer to getTerminalCalculation.js and its spec file for examples / explanations
   return terminalCalculation
-    ? [trimmedValue, terminalCalculation]
-    : [trimmedValue];
+    ? [finalCalculatedValue, terminalCalculation]
+    : [finalCalculatedValue];
 };
 
 export default equals;
