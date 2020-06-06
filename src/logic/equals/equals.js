@@ -43,11 +43,19 @@ const equals = values => {
     ];
   }
 
-  // Return both the caluclated value (index 0) and the terminal calculation.
+  // Trim to 9 decimal places
+  const calculatedValue = parseFloat(doArithmetic(values)[0])
+    .toPrecision(9)
+    .toString();
+
+  // Some mumbo-jumbo to trim off trailing zeroes
+  const trimmedValue = parseFloat(calculatedValue).toString();
+
+  // Return both the caluclated value (index 0) and the terminal calculation (index 1)
   // Refer to getTerminalCalculation.js and its spec file for examples / explanations
   return terminalCalculation
-    ? [...doArithmetic(values), terminalCalculation]
-    : doArithmetic(values);
+    ? [trimmedValue, terminalCalculation]
+    : [trimmedValue];
 };
 
 export default equals;
