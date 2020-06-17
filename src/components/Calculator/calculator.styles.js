@@ -13,13 +13,14 @@ export const CalculatorContainer = styled.div`
   padding-bottom: 0.5rem;
 
   @media only screen and (max-width: 26.55em) {
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    margin-top: 0;
     border-radius: 0;
   }
 
   @media only screen and (max-height: 40em) {
-    height: 100vh;
+    height: 100%;
   }
 
   // Mobile landscape mode
