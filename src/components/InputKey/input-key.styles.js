@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import {
   clearKeyStyles,
   utilKeyStyles,
@@ -7,7 +7,7 @@ import {
   operatorKeyStyles,
   equalsKeyStyles,
   mobileLandscapeOrder
-} from './key-specific.styles';
+} from "./key-specific.styles";
 
 const getKeyStyles = ({ type, value }) => {
   const keyStylesHash = {
@@ -18,7 +18,7 @@ const getKeyStyles = ({ type, value }) => {
     equals: equalsKeyStyles
   };
 
-  return keyStylesHash[type] || '';
+  return keyStylesHash[type] || "";
 };
 
 // General button styles
@@ -35,12 +35,16 @@ export const KeyOuter = styled.div`
   }
 `;
 
-export const KeyInner = styled.div`
+export const KeyInner = styled.button`
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  font: inherit;
   border-radius: 50%;
   -webkit-transform: scale(1);
   display: flex;
