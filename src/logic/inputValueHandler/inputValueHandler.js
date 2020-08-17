@@ -24,6 +24,9 @@ export default (currentValues, inputValue) => {
     console.error('ERR: No input value specified');
   }
 
+  // console.log(currentValues);
+  // console.log(inputValue);
+
   // Handle equals
   if (inputValue === EQUALS) {
     // Check for terminal calculation
@@ -35,7 +38,7 @@ export default (currentValues, inputValue) => {
   }
 
   // If user starts new calculation, remove the current terminal calculation (an array) if there is one
-  let values = [...currentValues].filter(el => !Array.isArray(el));
+  let values = currentValues.filter(el => !Array.isArray(el));
 
   // Handle numbers
   if (isNumber(inputValue)) {

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 import { DisplayContainer } from './display.styles';
-import CalcContext from '../../contexts/calcContext';
+import CalcContext from '../../contexts/CalcContext';
 
 import { OPENPAR, MULTIPLY } from '../../constants';
 
@@ -44,7 +44,6 @@ const displayOutput = arr => {
 
 // Thus, return a boolean denoting if the current values array is calculable:
 const canCalculate = arr => {
-  console.log(arr);
   if (!arr.length) {
     return true;
   }
@@ -68,17 +67,21 @@ const canCalculate = arr => {
 };
 
 const Display = () => {
-  const { values } = useContext(CalcContext);
+  const { inputsArray } = useContext(CalcContext);
   const [calculatedValue, runCalculation] = useState('');
+  console.log(inputsArray);
 
-  if (canCalculate(values) && displayOutput(values) !== calculatedValue) {
-    runCalculation(displayOutput(values));
+  if (
+    canCalculate(inputsArray) &&
+    displayOutput(inputsArray) !== calculatedValue
+  ) {
+    runCalculation(displayOutput(inputsArray));
   }
 
   return (
     <DisplayContainer>
       <div className='outputs'>
-        <div className='sub'>{displayUserInput(values)}</div>
+        <div className='sub'>{displayUserInput(inputsArray)}</div>
         <div className='main'>{calculatedValue}</div>
       </div>
     </DisplayContainer>
