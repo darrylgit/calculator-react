@@ -10,8 +10,9 @@ import equals from '../../logic/equals/equals';
 import unclosedPars from '../../utils/unclosedPars';
 import isOperator from '../../utils/isOperator';
 
-// Hide terminal calculation
-// Hide multiplication signs that come before an opening parenthesis
+// The equals function returns an array with two elements: the calculated value and the terminal calculation.
+// We only want to display the calculated value, i.e index 0.
+// Also, we hide multiplication signs that precede opening parentheses, i.e. "8 x (" becomes "8("
 const displayParser = arr => {
   return arr
     .filter(el => !Array.isArray(el))
@@ -19,7 +20,8 @@ const displayParser = arr => {
     .join('');
 };
 
-const displaySub = arr => {
+// If there is no terminal calculation (i.e. the user has not hit enter recently), display all user input:
+const displayUserInput = arr => {
   if (!hasTerminalCalculation(arr) && arr.length > 1) {
     return displayParser(arr);
   }
@@ -27,7 +29,7 @@ const displaySub = arr => {
   return '';
 };
 
-const displayMain = arr => {
+const displayOutput = arr => {
   // If the user has just hit equals, return early and just display the calculated value
   if (hasTerminalCalculation(arr) || arr.length <= 1) {
     return displayParser(arr);
@@ -36,10 +38,13 @@ const displayMain = arr => {
   // Truncate incoming array by 1 element
   const arrForMain = arr.slice(0, -1);
 
+  // Calculate that value and display it
   return displayParser(equals(arrForMain));
 };
 
+// Thus, return a boolean denoting if the current values array is calculable:
 const canCalculate = arr => {
+  console.log(arr);
   if (!arr.length) {
     return true;
   }
@@ -49,13 +54,16 @@ const canCalculate = arr => {
     return true;
   }
 
-  // Truncate incoming array by 1 element
-  const arrForMain = arr.slice(0, -1);
+  // Before the user hits equals, the we continually runs calculations one step behind the user
+  // Reason being: if these calculations ran in step with user input, the equals button would be highly redundant
+  // Therefore, we truncate the incoming array by one index
+  const displayOutputArray = arr.slice(0, -1);
 
+  // We don't want to run a calculation if there are unclosed parentheses, or if the current last value is a dangling operator
   return (
-    arrForMain.length &&
-    !unclosedPars(arrForMain) &&
-    !isOperator(arrForMain.slice(-1))
+    displayOutputArray.length &&
+    !unclosedPars(displayOutputArray) &&
+    !isOperator(displayOutputArray.slice(-1))
   );
 };
 
@@ -63,14 +71,14 @@ const Display = () => {
   const { values } = useContext(CalcContext);
   const [calculatedValue, runCalculation] = useState('');
 
-  if (canCalculate(values) && displayMain(values) !== calculatedValue) {
-    runCalculation(displayMain(values));
+  if (canCalculate(values) && displayOutput(values) !== calculatedValue) {
+    runCalculation(displayOutput(values));
   }
 
   return (
     <DisplayContainer>
       <div className='outputs'>
-        <div className='sub'>{displaySub(values)}</div>
+        <div className='sub'>{displayUserInput(values)}</div>
         <div className='main'>{calculatedValue}</div>
       </div>
     </DisplayContainer>

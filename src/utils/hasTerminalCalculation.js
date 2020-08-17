@@ -1,3 +1,4 @@
+// Returns true if arr is in format [value, sub-array]
 const hasTerminalCalculation = arr => {
   return (
     arr.length === 2 &&
