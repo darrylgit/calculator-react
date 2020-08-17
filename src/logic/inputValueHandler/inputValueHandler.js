@@ -24,9 +24,6 @@ export default (currentValues, inputValue) => {
     console.error('ERR: No input value specified');
   }
 
-  // console.log(currentValues);
-  // console.log(inputValue);
-
   // Handle equals
   if (inputValue === EQUALS) {
     // Check for terminal calculation

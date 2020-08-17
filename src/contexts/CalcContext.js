@@ -18,8 +18,3 @@ export const CalcProvider = ({ children }) => {
 };
 
 export default CalcContext;
-
-// export default createContext({
-//   values: [],
-//   pushValue: () => {}
-// });

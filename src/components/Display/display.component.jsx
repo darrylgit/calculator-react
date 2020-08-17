@@ -69,7 +69,6 @@ const canCalculate = arr => {
 const Display = () => {
   const { inputsArray } = useContext(CalcContext);
   const [calculatedValue, runCalculation] = useState('');
-  console.log(inputsArray);
 
   if (
     canCalculate(inputsArray) &&
