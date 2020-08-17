@@ -1,4 +1,4 @@
-import { css, keyframes } from 'styled-components';
+import { css, keyframes } from "styled-components";
 
 import {
   BACKSPACE,
@@ -11,14 +11,20 @@ import {
   SUBTRACT,
   ADD,
   EQUALS
-} from '../../constants';
+} from "../../constants";
 
-const clearColor = '#ff3545';
-const utilColor = '#727272';
-const numColor = '#6fa7c6';
-const operatorColor = '#ff8a35;';
-const equalsColor = '#35aaff';
-const equalsColorHover = '#006097';
+const clearColor = "#ff3545";
+const clearFocus = "#ff7882";
+const utilColor = "#727272";
+const utilFocus = "#a1a1a1";
+const numColor = "#6fa7c6";
+const numFocus = "#9dcae3";
+const operatorColor = "#ff8a35";
+const operatorFocus = "#ffa869";
+const equalsColor = "#35aaff";
+const equalsFocus = "#68befc";
+const equalsHover = "#006097";
+
 // Render styles conditionally for each type of input key
 
 const mobileTapKeyframes = color => {
@@ -57,6 +63,15 @@ export const clearKeyStyles = css`
     color: #fff;
   }
 
+  &:focus {
+    outline: none;
+    color: ${clearFocus};
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
   @media screen and (hover: none) {
     ${mobileTap(clearColor)}
   }
@@ -64,10 +79,10 @@ export const clearKeyStyles = css`
 
 export const utilKeyStyles = value => {
   const fontSizesHash = {
-    [DECIMAL]: '5rem',
-    [NEGATIVE]: '3rem',
-    [PARENTHESES]: '4rem',
-    [BACKSPACE]: '3.5rem'
+    [DECIMAL]: "5rem",
+    [NEGATIVE]: "3rem",
+    [PARENTHESES]: "4rem",
+    [BACKSPACE]: "3.5rem"
   };
 
   const styles = css`
@@ -78,6 +93,15 @@ export const utilKeyStyles = value => {
     &:hover {
       background-color: ${utilColor};
       color: #fff;
+    }
+
+    &:focus {
+      outline: none;
+      color: ${utilFocus};
+
+      &:hover {
+        color: #fff;
+      }
     }
 
     @media screen and (hover: none) {
@@ -98,6 +122,15 @@ export const numKeyStyles = css`
     color: white;
   }
 
+  &:focus {
+    outline: none;
+    color: ${numFocus};
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
   @media screen and (hover: none) {
     ${mobileTap(numColor)}
   }
@@ -113,6 +146,15 @@ export const operatorKeyStyles = css`
     color: #fff;
   }
 
+  &:focus {
+    outline: none;
+    color: ${operatorFocus};
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
   @media screen and (hover: none) {
     ${mobileTap(operatorColor)}
   }
@@ -125,7 +167,16 @@ export const equalsKeyStyles = css`
 
   &:hover {
     color: white;
-    background-color: ${equalsColorHover};
+    background-color: ${equalsHover};
+  }
+
+  &:focus {
+    outline: none;
+    background-color: ${equalsFocus};
+
+    &:hover {
+      background-color: ${equalsHover};
+    }
   }
 
   @media screen and (hover: none) {
@@ -148,31 +199,31 @@ export const mobileLandscapeOrder = ({ value }) => {
       return 3;
     case ADD:
       return 4;
-    case '6':
+    case "6":
       return 5;
-    case '7':
+    case "7":
       return 6;
-    case '8':
+    case "8":
       return 7;
-    case '9':
+    case "9":
       return 8;
     case PARENTHESES:
       return 9;
-    case '2':
+    case "2":
       return 10;
-    case '3':
+    case "3":
       return 11;
-    case '4':
+    case "4":
       return 12;
-    case '5':
+    case "5":
       return 13;
     case DECIMAL:
       return 14;
     case BACKSPACE:
       return 15;
-    case '0':
+    case "0":
       return 16;
-    case '1':
+    case "1":
       return 17;
     case NEGATIVE:
       return 18;
