@@ -9,8 +9,10 @@ import inputValueHandler from '../../logic/inputValueHandler/inputValueHandler';
 
 const Calculator = () => {
   const [values, setValues] = useState([]);
-  const pushValue = inputValue =>
-    setValues(inputValueHandler(values, inputValue));
+  const pushValue = inputValue => {
+    console.log('called');
+    return setValues(inputValueHandler(values, inputValue));
+  };
 
   return (
     <CalculatorContainer>
