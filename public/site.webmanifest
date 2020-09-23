@@ -1,19 +1,26 @@
 {
-    "name": "Calculator",
-    "short_name": "Calculator",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#35aaff",
-    "background_color": "#35aaff",
-    "display": "standalone"
+  "name": "Calculator",
+  "short_name": "Calculator",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "path/to/maskable_icon.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#35aaff",
+  "background_color": "#35aaff",
+  "display": "standalone",
+  "start_url": "https://danieljwagener.github.io/calculator-react/"
 }
