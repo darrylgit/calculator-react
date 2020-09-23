@@ -9,6 +9,7 @@ const InputKey = ({ label, type, value }) => {
   return (
     <KeyContainer
       type={type}
+      name={label}
       label={label}
       value={value}
       onClick={() => pushNewInput(value)}
